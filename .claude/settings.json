@@ -8,7 +8,8 @@
       "Bash(node -e \"const fs=require\\('fs'\\); try{console.log\\(fs.readdirSync\\('./node_modules/next/dist/docs'\\).join\\('\\\\n'\\)\\)}catch\\(e\\){console.log\\('no docs dir'\\)}\")",
       "Bash(node -e \"const fs=require\\('fs'\\); console.log\\(fs.readdirSync\\('./node_modules/next/dist/docs/01-app'\\).join\\('\\\\n'\\)\\)\")",
       "Bash(node -e \"const a = require\\('animejs'\\); console.log\\(Object.keys\\(a\\).filter\\(k => k.toLowerCase\\(\\).includes\\('ease'\\)\\).join\\(', '\\)\\)\")",
-      "Bash(node -e \"const a = require\\('animejs'\\); const e = a.eases; console.log\\(typeof e, Object.keys\\(e\\).slice\\(0,20\\).join\\(', '\\)\\)\")"
+      "Bash(node -e \"const a = require\\('animejs'\\); const e = a.eases; console.log\\(typeof e, Object.keys\\(e\\).slice\\(0,20\\).join\\(', '\\)\\)\")",
+      "Bash(node -e \"const pkg = require\\('./node_modules/animejs/package.json'\\); console.log\\(pkg.version\\)\")"
     ]
   }
 }

@@ -105,7 +105,7 @@ export default function ServicesSection() {
           translateY: [0, -12],
           duration: 180,
           ease: "easeInQuad",
-        }).finished;
+        });
         animate(detailRef.current, {
           opacity: [0, 1],
           translateY: [12, 0],
@@ -119,7 +119,7 @@ export default function ServicesSection() {
           scale: [1, 0.97],
           duration: 180,
           ease: "easeInQuad",
-        }).finished;
+        });
         animate(imageRef.current, {
           opacity: [0, 1],
           scale: [1.03, 1],

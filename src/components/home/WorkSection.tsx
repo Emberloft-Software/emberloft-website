@@ -88,7 +88,7 @@ export default function DontSection() {
         duration: 200,
         delay: stagger(30, { from: "last" }),
         ease: "inCubic",
-      }).finished;
+      });
 
       // Step 2: update active index (React re-renders text)
       setActiveIndex((prev) => (prev + 1) % items.length);
@@ -102,7 +102,7 @@ export default function DontSection() {
         duration: 350,
         delay: stagger(40, { from: "first" }),
         ease: "outBack",
-      }).finished;
+      });
 
       setIsAnimating(false);
     };
