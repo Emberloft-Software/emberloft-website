@@ -143,13 +143,13 @@ export default function FAQSection() {
           {/* Label */}
           <div className="flex items-center gap-2 mb-[3vh]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FB4B54]" />
-            <span className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.18em] uppercase">
+            <span className="font-geist text-[#FB4B54] text-xs font-medium tracking-[0.18em] uppercase">
               FAQ's
             </span>
           </div>
 
           <h2
-            className="font-geist font-black text-black leading-[0.95]"
+            className="font-geist font-extrabold text-black leading-[0.95]"
             style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)" }}
           >
             Things
@@ -162,7 +162,7 @@ export default function FAQSection() {
             >
               knowing
             </span>
-            <span className="font-geist font-black text-black">.</span>
+            <span className="font-geist font-extrabold text-black">.</span>
           </h2>
         </div>
 
@@ -181,7 +181,7 @@ export default function FAQSection() {
                 className="w-full flex items-center justify-between px-6 py-[2.2vh] text-left group"
               >
                 <span
-                  className="font-geist font-semibold text-black transition-colors duration-200 group-hover:text-[#FB4B54] pr-4"
+                  className="font-geist font-medium text-black transition-colors duration-200 group-hover:text-[#FB4B54] pr-4"
                   style={{ fontSize: "clamp(0.85rem, 1.2vw, 1rem)" }}
                 >
                   {faq.question}

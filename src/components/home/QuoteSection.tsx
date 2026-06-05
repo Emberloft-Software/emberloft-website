@@ -95,13 +95,13 @@ export default function QuoteSection() {
               style={{ opacity: 0 }}
             >
               {w.style === "bold" && (
-                <span className="font-geist font-black text-black">
+                <span className="font-geist font-extrabold text-black">
                   {w.word}
                 </span>
               )}
               {w.style === "faded" && (
                 <span
-                  className="font-geist font-black"
+                  className="font-geist font-extrabold"
                   style={{ color: "rgba(0,0,0,0.22)" }}
                 >
                   {w.word}

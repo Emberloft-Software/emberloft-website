@@ -82,13 +82,13 @@ export default function HeroSection() {
 
         {/* Headline */}
         <div className="mb-8">
-          <h1 className="font-geist text-5xl sm:text-6xl md:text-8xl font-extrabold leading-none tracking-tight text-white">
+          <h1 className="font-geist text-5xl sm:text-6xl md:text-8xl font-bold leading-none tracking-tight text-white">
             Quiet Craft.
           </h1>
           <h1 className="font-instrument-serif text-5xl sm:text-6xl md:text-8xl font-normal leading-none tracking-tight text-white italic">
             Loud
           </h1>
-          <h1 className="font-geist text-5xl sm:text-6xl md:text-8xl font-extrabold leading-none tracking-tight text-white">
+          <h1 className="font-geist text-5xl sm:text-6xl md:text-8xl font-bold leading-none tracking-tight text-white">
             Results.
           </h1>
         </div>
@@ -97,7 +97,7 @@ export default function HeroSection() {
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
           <a
             href="#"
-            className="flex items-center gap-2 bg-[#EEBA0B] text-black font-semibold text-sm px-5 py-3 rounded-full hover:brightness-110 transition-all"
+            className="flex items-center gap-2 bg-[#EEBA0B] text-black font-medium text-sm px-5 py-3 rounded-full hover:brightness-110 transition-all"
           >
             Apply To Work With Us
             <span className="w-5 h-5 bg-black rounded-full flex items-center justify-center">
@@ -124,7 +124,7 @@ export default function HeroSection() {
           className="mb-[70px] pointer-events-none select-none overflow-hidden -mx-8 md:-mx-14"
         >
           <p
-            className="font-geist text-[15vw] font-black tracking-tighter px-6 md:px-8 leading-none whitespace-nowrap text-white"
+            className="font-geist text-[15vw] font-extrabold tracking-tighter px-6 md:px-8 leading-none whitespace-nowrap text-white"
             style={{ mixBlendMode: "exclusion" }}
           >
             emberloft
@@ -177,7 +177,7 @@ export default function HeroSection() {
           <div className="flex animate-marquee-slow shrink-0">
             {[...Array(6)].map((_, i) => (
               <span key={i} className="text-xs mr-10">
-                <span className="text-[#EEBA0B] font-semibold">[CURRENTLY BOOKING Q3 2026]</span>
+                <span className="text-[#EEBA0B] font-medium">[CURRENTLY BOOKING Q3 2026]</span>
                 <span className="text-white/50"> · Applications open · A few engagements at a time · </span>
               </span>
             ))}

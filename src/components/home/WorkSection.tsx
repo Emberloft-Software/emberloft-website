@@ -139,7 +139,7 @@ export default function DontSection() {
         {/* "We don't" heading */}
         <div className="relative shrink-0 flex items-center select-none">
           <span
-            className="font-geist font-black text-black"
+            className="font-geist font-extrabold text-black"
             style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", lineHeight: 1 }}
           >
             We{" "}
@@ -207,7 +207,7 @@ export default function DontSection() {
                 }}
               >
                 <span
-                  className="font-geist font-black text-black transition-all duration-300 whitespace-nowrap leading-none"
+                  className="font-geist font-extrabold text-black transition-all duration-300 whitespace-nowrap leading-none"
                   style={{
                     fontSize,
                     opacity,

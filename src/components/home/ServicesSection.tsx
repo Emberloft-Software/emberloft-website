@@ -147,7 +147,7 @@ export default function ServicesSection() {
       {/* Label */}
       <div className="flex items-center gap-2 mb-[3vh]">
         <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
-        <span className="font-geist text-[#EEBA0B] text-xs font-semibold tracking-[0.18em] uppercase">
+        <span className="font-geist text-[#EEBA0B] text-xs font-medium tracking-[0.18em] uppercase">
           What We Do
         </span>
       </div>
@@ -155,7 +155,7 @@ export default function ServicesSection() {
       {/* Heading */}
       <h2
         ref={headingRef}
-        className="font-geist text-[clamp(2rem,5vw,4rem)] font-black text-white leading-tight mb-[6vh] opacity-0"
+        className="font-geist text-[clamp(2rem,5vw,4rem)] font-extrabold text-white leading-tight mb-[6vh] opacity-0"
       >
         Four disciplines.{" "}
         <span className="font-instrument-serif font-normal italic text-[#EEBA0B]">
@@ -189,7 +189,7 @@ export default function ServicesSection() {
               />
 
               <h3
-                className="font-geist font-black transition-all duration-300 pl-4"
+                className="font-geist font-extrabold transition-all duration-300 pl-4"
                 style={{
                   fontSize: "clamp(1.6rem, 3.2vw, 2.8rem)",
                   color: activeIndex === i ? "white" : "rgba(255,255,255,0.25)",
@@ -197,7 +197,7 @@ export default function ServicesSection() {
               >
                 {service.title}
                 <sup
-                  className="font-geist font-bold text-[0.35em] ml-1 align-super tracking-wider transition-colors duration-300"
+                  className="font-geist font-semibold text-[0.35em] ml-1 align-super tracking-wider transition-colors duration-300"
                   style={{
                     color: activeIndex === i ? "#FB4B54" : "rgba(255,255,255,0.2)",
                   }}
@@ -259,7 +259,7 @@ export default function ServicesSection() {
 
           {/* Text details */}
           <div>
-            <h4 className="font-geist font-bold text-white text-lg mb-[1vh]">
+            <h4 className="font-geist font-semibold text-white text-lg mb-[1vh]">
               {active.title}
             </h4>
             <p className="font-geist text-white/50 text-sm leading-relaxed mb-[2vh]">

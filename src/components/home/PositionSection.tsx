@@ -114,7 +114,7 @@ export default function PositionSection() {
       {/* Label */}
       <span
         ref={labelRef}
-        className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.2em] uppercase mb-[4vh]"
+        className="font-geist text-[#FB4B54] text-xs font-medium tracking-[0.2em] uppercase mb-[4vh]"
         style={{ opacity: 0 }}
       >
         — Our Position
@@ -146,7 +146,7 @@ export default function PositionSection() {
                       opacity: 0,
                       transform: "translateY(105%)",
                       fontSize: "clamp(1.5rem, 3.2vw, 2.8rem)",
-                      fontWeight: 900,
+                      fontWeight: 800,
                       lineHeight: 1.15,
                       whiteSpace: "pre",
                     }}
@@ -159,7 +159,7 @@ export default function PositionSection() {
                         {w.text}
                       </span>
                     ) : (
-                      <span className="font-geist font-black text-black">
+                      <span className="font-geist font-extrabold text-black">
                         {w.text}
                       </span>
                     )}
