@@ -370,7 +370,7 @@ export default function PricingSection() {
         translateY: [0, 16],
         duration: 200,
         ease: "inQuad",
-      }).finished;
+      });
     }
 
     setActiveCategory(cat);
