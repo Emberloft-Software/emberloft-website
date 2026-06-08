@@ -117,7 +117,7 @@ export default function Navbar() {
         {/* CTA button — desktop only */}
         <Link
           href="/contact"
-          className="hidden md:flex items-center gap-2 bg-[#EEBA0B] text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#d4f55a] transition-colors"
+          className="hidden md:flex items-center gap-2 bg-[#EEBA0B] text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:brightness-110 transition-colors"
         >
           Explore More
           <span className="w-5 h-5 bg-black rounded-full flex items-center justify-center">
