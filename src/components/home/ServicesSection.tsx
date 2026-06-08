@@ -39,6 +39,7 @@ const services = [
 
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<any>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [animated, setAnimated] = useState(false);
@@ -46,6 +47,41 @@ export default function ServicesSection() {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const detailRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+
+  // Vanta fog background
+  useEffect(() => {
+    const initVanta = async () => {
+      if (vantaEffect.current || !sectionRef.current) return;
+
+      const THREE = await import("three");
+      (window as any).THREE = { ...THREE };
+
+      await new Promise((r) => setTimeout(r, 50));
+
+      const FOG = (await import("vanta/dist/vanta.fog.min")).default;
+
+      if (!sectionRef.current) return;
+
+      vantaEffect.current = FOG({
+        el: sectionRef.current,
+        THREE: (window as any).THREE,
+        highlightColor: 0xfb4b54,
+        midtoneColor: 0x6a1fb0,
+        lowlightColor: 0x100018,
+        baseColor: 0x290052,
+        blurFactor: 0.6,
+        speed: 1.2,
+        zoom: 1,
+      });
+    };
+
+    initVanta();
+
+    return () => {
+      vantaEffect.current?.destroy();
+      vantaEffect.current = null;
+    };
+  }, []);
 
   // Entrance animation on scroll into view
   useEffect(() => {
@@ -142,8 +178,11 @@ export default function ServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#0D0D0D] py-[8vh] px-[5vw]"
+      className="relative w-full overflow-hidden bg-[#290052] py-[8vh] px-[5vw]"
     >
+      {/* Content layer (above Vanta fog canvas) */}
+      <div className="relative z-10">
+
       {/* Label */}
       <div className="flex items-center gap-2 mb-[3vh]">
         <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
@@ -280,6 +319,7 @@ export default function ServicesSection() {
           </div>
         </div>
 
+      </div>
       </div>
     </section>
   );
