@@ -5,9 +5,51 @@ import { useEffect, useRef, useState } from "react";
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<any>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const [animated, setAnimated] = useState(false);
 
+  // ── Vanta clouds ──────────────────────────────────────
+  useEffect(() => {
+    const initVanta = async () => {
+      if (vantaEffect.current || !vantaRef.current) return;
+
+      const THREE = await import("three");
+      (window as any).THREE = { ...THREE };
+
+      await new Promise((r) => setTimeout(r, 50));
+
+      const CLOUDS = (await import("vanta/dist/vanta.clouds.min")).default;
+
+      if (!vantaRef.current) return;
+
+      vantaEffect.current = CLOUDS({
+        el: vantaRef.current,
+        THREE: (window as any).THREE,
+        // Deep near-black base
+        backgroundColor: 0x080008,
+        // Cloud colors pulled from emberloft palette
+        skyColor: 0x0d000d,
+        cloudColor: 0x290052,       // deep purple clouds
+        cloudShadowColor: 0x100008, // very dark shadow
+        sunColor: 0xFB4B54,         // red sun glow
+        sunGlareColor: 0xFB4B54,
+        sunlightColor: 0xFB4B54,
+        speed: 0.8,
+        backgroundAlpha: 1,
+      });
+    };
+
+    initVanta();
+
+    return () => {
+      vantaEffect.current?.destroy();
+      vantaEffect.current = null;
+    };
+  }, []);
+
+  // ── Entrance animation ────────────────────────────────
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -32,7 +74,7 @@ export default function Footer() {
         translateY: [28, 0],
         delay: stagger(110),
         duration: 800,
-        ease: "easeOutExpo",
+        ease: "outExpo",
       });
     }
 
@@ -43,7 +85,7 @@ export default function Footer() {
         translateY: [18, 0],
         delay: stagger(70, { start: 350 }),
         duration: 600,
-        ease: "easeOutExpo",
+        ease: "outExpo",
       });
     }
   };
@@ -52,49 +94,89 @@ export default function Footer() {
     <footer ref={footerRef} className="w-full bg-[#0D0D0D]">
       <div className="border-t border-white/10" />
 
-      {/* ── CTA block ── */}
+      {/* ── CTA block with Vanta clouds ── */}
       <div
-        ref={ctaRef}
-        className="px-[5vw] pt-[12vh] pb-[10vh] flex flex-col items-center text-center"
+        ref={vantaRef}
+        className="relative w-full overflow-hidden"
       >
-        <div className="cta-line opacity-0 flex items-center gap-2 mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
-          <span className="font-geist text-[#EEBA0B] text-xs tracking-[0.2em] uppercase font-medium">
-            A new beginning
-          </span>
-        </div>
+        {/* Bottom fade so clouds blend into the dark footer grid */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, #0D0D0D)",
+          }}
+        />
 
-        <h2
-          className="cta-line opacity-0 font-geist font-extrabold text-white leading-none tracking-tight mb-2"
-          style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
-        >
-          From the quiet,
-        </h2>
-        <h2
-          className="cta-line opacity-0 leading-none mb-12"
-          style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
-        >
-          <span className="font-instrument-serif font-normal italic text-[#EEBA0B]">
-            something rises.
-          </span>
-        </h2>
+        {/* Top fade */}
+        <div
+          className="absolute top-0 left-0 right-0 h-16 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to top, transparent, rgba(8,0,8,0.6))",
+          }}
+        />
 
-        <div className="cta-line opacity-0 flex flex-wrap justify-center gap-3">
-          <a
-            href="#"
-            className="flex items-center gap-2 bg-[#EEBA0B] text-black font-medium text-sm px-6 py-3.5 rounded-full hover:brightness-110 transition-all"
-          >
-            Apply to Work With Us
-            <span className="w-5 h-5 bg-black rounded-full flex items-center justify-center">
-              <ArrowIcon color="white" />
+        {/* Left + right vignettes */}
+        <div
+          className="absolute inset-y-0 left-0 w-24 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(8,0,8,0.5), transparent)",
+          }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-24 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to left, rgba(8,0,8,0.5), transparent)",
+          }}
+        />
+
+        {/* CTA content */}
+        <div
+          ref={ctaRef}
+          className="relative z-20 px-[5vw] pt-[12vh] pb-[10vh] flex flex-col items-center text-center"
+        >
+          <div className="cta-line opacity-0 flex items-center gap-2 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
+            <span className="font-geist text-[#EEBA0B] text-xs tracking-[0.2em] uppercase font-medium">
+              A new beginning
             </span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-2 border border-white/20 text-white/70 text-sm font-medium px-6 py-3.5 rounded-full hover:bg-white/10 hover:text-white transition-colors"
+          </div>
+
+          <h2
+            className="cta-line opacity-0 font-geist font-extrabold text-white leading-none tracking-tight mb-2"
+            style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
           >
-            Let's Talk
-          </a>
+            From the quiet,
+          </h2>
+          <h2
+            className="cta-line opacity-0 leading-none mb-12"
+            style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
+          >
+            <span className="font-instrument-serif font-normal italic text-[#EEBA0B]">
+              something rises.
+            </span>
+          </h2>
+
+          <div className="cta-line opacity-0 flex flex-wrap justify-center gap-3">
+            <a
+              href="#"
+              className="flex items-center gap-2 bg-[#EEBA0B] text-black font-medium text-sm px-6 py-3.5 rounded-full hover:brightness-110 transition-all"
+            >
+              Apply to Work With Us
+              <span className="w-5 h-5 bg-black rounded-full flex items-center justify-center">
+                <ArrowIcon color="white" />
+              </span>
+            </a>
+            <a
+              href="#"
+              className="flex items-center gap-2 border border-white/20 text-white/70 text-sm font-medium px-6 py-3.5 rounded-full hover:bg-white/10 hover:text-white transition-colors"
+            >
+              Let's Talk
+            </a>
+          </div>
         </div>
       </div>
 
@@ -201,7 +283,6 @@ export default function Footer() {
           © 2026 Emberloft Studio. All rights reserved.
         </span>
 
-        {/* Abstract rising wisps — subtle ember / phoenix motif */}
         <RisingWisps />
 
         <div className="flex items-center gap-6">
@@ -223,7 +304,6 @@ export default function Footer() {
   );
 }
 
-/* Three rising strands — gold outer, red center — reads as ember sparks or feathers */
 function EmberMark() {
   return (
     <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true">
@@ -249,7 +329,6 @@ function EmberMark() {
   );
 }
 
-/* Faint version of the same motif for the bottom bar */
 function RisingWisps() {
   return (
     <svg width="26" height="20" viewBox="0 0 26 20" fill="none" aria-hidden="true">
