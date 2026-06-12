@@ -98,7 +98,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/home"
-          className="flex items-center gap-2 pl-2 text-white font-semibold text-lg tracking-tight"
+          className="flex h-12 items-center gap-2 pl-2 text-white font-semibold text-xl tracking-tight"
         >
           <Image
             src="/logo.webp"
@@ -111,12 +111,12 @@ export default function Navbar() {
         </Link>
 
         {/* Nav links pill — desktop only */}
-        <div className="hidden md:flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1">
+        <div className="hidden md:flex h-12 items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+              className={`flex h-full items-center justify-center px-4 rounded-full text-[clamp(0.8rem,1vw,1.125rem)] font-medium transition-colors ${
                 pathname === link.href
                   ? "bg-white text-black"
                   : "text-white/70 hover:text-white hover:bg-white/10"

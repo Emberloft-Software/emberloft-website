@@ -73,7 +73,7 @@ export default function HeroSection() {
       </video>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/30 to-transparent" />
 
       {/* ── Full height layout column ── */}
       <div className="relative z-10 flex flex-col h-full px-8 md:px-14">
@@ -136,8 +136,8 @@ export default function HeroSection() {
 
       {/* Drumroll service list — right side (hidden on mobile) */}
       <div className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 z-20 overflow-hidden h-36">
-        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-8 bg-linear-to-b from-black/60 to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-black/60 to-transparent z-10 pointer-events-none" />
 
         <div ref={drumRef} className="flex flex-col">
           {services.map((s, i) => (

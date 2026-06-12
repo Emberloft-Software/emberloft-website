@@ -181,7 +181,7 @@ export default function AboutSection() {
               className="object-cover object-center"
             />
             {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <h3 className="font-geist font-semibold text-white text-xl mb-1.5 leading-tight">
                 Accountable to the work.
