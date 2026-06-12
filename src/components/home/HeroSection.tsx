@@ -58,7 +58,8 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-black">
+    <>
+    <section className="relative w-full h-screen overflow-hidden bg-black">
 
       {/* Background video */}
       <video
@@ -78,17 +79,17 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col h-full px-8 md:px-14">
 
         {/* Top spacer — pushes headline down from navbar */}
-        <div className="pt-32 md:pt-36" />
+        <div className="pt-28 md:pt-32" />
 
         {/* Headline */}
         <div className="mb-8">
-          <h1 className="font-geist text-5xl sm:text-6xl md:text-8xl font-bold leading-none tracking-tight text-white">
+          <h1 className="font-geist text-5xl sm:text-6xl md:text-7xl font-bold leading-none tracking-tight text-white">
             Quiet Craft.
           </h1>
-          <h1 className="font-instrument-serif text-5xl sm:text-6xl md:text-8xl font-normal leading-none tracking-tight text-white italic">
+          <h1 className="font-instrument-serif text-5xl sm:text-6xl md:text-7xl font-normal leading-none tracking-tight text-white italic">
             Loud
           </h1>
-          <h1 className="font-geist text-5xl sm:text-6xl md:text-8xl font-bold leading-none tracking-tight text-white">
+          <h1 className="font-geist text-5xl sm:text-6xl md:text-7xl font-bold leading-none tracking-tight text-white">
             Results.
           </h1>
         </div>
@@ -119,12 +120,12 @@ export default function HeroSection() {
         {/* ── Spacer that pushes watermark down ── */}
         <div className="flex-1" />
 
-        {/* Watermark — anchored inside the flow, 70px above marquee strip */}
+        {/* Watermark — anchored at the bottom of the hero */}
         <div
-          className="mb-[70px] pointer-events-none select-none overflow-hidden -mx-8 md:-mx-14"
+          className="mb-6 md:mb-10 pointer-events-none select-none overflow-hidden -mx-8 md:-mx-14"
         >
           <p
-            className="font-geist text-[15vw] font-extrabold tracking-tighter px-6 md:px-8 leading-none whitespace-nowrap text-white"
+            className="font-geist text-[13vw] font-extrabold tracking-tighter px-6 md:px-8 leading-none whitespace-nowrap text-white"
             style={{ mixBlendMode: "exclusion" }}
           >
             emberloft
@@ -150,42 +151,43 @@ export default function HeroSection() {
           ))}
         </div>
       </div>
-
-      {/* Bottom marquee strip */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-black/60 backdrop-blur-sm py-3 overflow-hidden">
-
-        {/* Services row */}
-        <div className="flex whitespace-nowrap mb-1.5 overflow-hidden">
-          <div className="flex animate-marquee shrink-0">
-            {marqueeItems.map((item, i) => (
-              <span key={i} className="text-white/60 text-sm font-medium mr-12">
-                {item}
-              </span>
-            ))}
-          </div>
-          <div className="flex animate-marquee shrink-0" aria-hidden="true">
-            {marqueeItems.map((item, i) => (
-              <span key={i} className="text-white/60 text-sm font-medium mr-12">
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Booking ticker */}
-        <div className="flex whitespace-nowrap overflow-hidden">
-          <div className="flex animate-marquee-slow shrink-0">
-            {[...Array(6)].map((_, i) => (
-              <span key={i} className="text-xs mr-10">
-                <span className="text-[#EEBA0B] font-medium">[CURRENTLY BOOKING Q3 2026]</span>
-                <span className="text-white/50"> · Applications open · A few engagements at a time · </span>
-              </span>
-            ))}
-          </div>
-        </div>
-
-      </div>
     </section>
+
+    {/* Marquee strip — sits in the next viewport, below the hero */}
+    <div className="relative z-20 w-full border-t border-white/10 bg-[#0D0D0D] py-3 overflow-hidden">
+
+      {/* Services row */}
+      <div className="flex whitespace-nowrap mb-1.5 overflow-hidden">
+        <div className="flex animate-marquee shrink-0">
+          {marqueeItems.map((item, i) => (
+            <span key={i} className="text-white/60 text-sm font-medium mr-12">
+              {item}
+            </span>
+          ))}
+        </div>
+        <div className="flex animate-marquee shrink-0" aria-hidden="true">
+          {marqueeItems.map((item, i) => (
+            <span key={i} className="text-white/60 text-sm font-medium mr-12">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Booking ticker */}
+      <div className="flex whitespace-nowrap overflow-hidden">
+        <div className="flex animate-marquee-slow shrink-0">
+          {[...Array(6)].map((_, i) => (
+            <span key={i} className="text-xs mr-10">
+              <span className="text-[#EEBA0B] font-medium">[CURRENTLY BOOKING Q3 2026]</span>
+              <span className="text-white/50"> · Applications open · A few engagements at a time · </span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+    </>
   );
 }
 

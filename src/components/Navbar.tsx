@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import ArrowButton from "./ArrowButton";
 
 const navLinks = [
   { label: "Home", href: "/home" },
@@ -30,7 +32,9 @@ export default function Navbar() {
   // Lock body scroll while menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   // Animate open / close
@@ -45,10 +49,9 @@ export default function Navbar() {
       const menu = menuRef.current;
       if (!menu) return;
 
-      const items = [
-        ...linkItemsRef.current,
-        ctaRef.current,
-      ].filter(Boolean) as HTMLElement[];
+      const items = [...linkItemsRef.current, ctaRef.current].filter(
+        Boolean,
+      ) as HTMLElement[];
 
       if (menuOpen) {
         menu.style.pointerEvents = "auto";
@@ -86,14 +89,24 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-500 border-b ${
+        className={`fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[90vw] flex items-center justify-between px-2 py-2 rounded-full transition-all duration-500 border ${
           scrolled
             ? "bg-[#290052]/50 backdrop-blur-xl border-white/10 shadow-lg shadow-black/20"
             : "bg-white/5 backdrop-blur-md border-white/5"
         }`}
       >
         {/* Logo */}
-        <Link href="/home" className="text-white font-semibold text-lg tracking-tight">
+        <Link
+          href="/home"
+          className="flex items-center gap-2 pl-2 text-white font-semibold text-lg tracking-tight"
+        >
+          <Image
+            src="/logo.webp"
+            alt="Emberloft logo"
+            width={500}
+            height={397}
+            className="w-8 md:w-12 h-auto"
+          />
           emberloft
         </Link>
 
@@ -115,15 +128,9 @@ export default function Navbar() {
         </div>
 
         {/* CTA button — desktop only */}
-        <Link
-          href="/contact"
-          className="hidden md:flex items-center gap-2 bg-[#EEBA0B] text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:brightness-110 transition-colors"
-        >
+        <ArrowButton href="/contact" className="hidden md:inline-flex">
           Explore More
-          <span className="w-5 h-5 bg-black rounded-full flex items-center justify-center">
-            <ArrowIcon color="white" />
-          </span>
-        </Link>
+        </ArrowButton>
 
         {/* Hamburger button — mobile only */}
         <button
@@ -163,7 +170,9 @@ export default function Navbar() {
           {navLinks.map((link, i) => (
             <div
               key={link.href}
-              ref={(el) => { linkItemsRef.current[i] = el; }}
+              ref={(el) => {
+                linkItemsRef.current[i] = el;
+              }}
               className="border-b border-white/10 opacity-0"
             >
               <Link
@@ -188,32 +197,12 @@ export default function Navbar() {
 
           {/* CTA */}
           <div ref={ctaRef} className="mt-auto pb-12 pt-8 opacity-0">
-            <Link
-              href="/contact"
-              onClick={() => setMenuOpen(false)}
-              className="inline-flex items-center gap-2 bg-[#EEBA0B] text-black font-semibold text-sm px-6 py-3 rounded-full hover:brightness-110 transition-all"
-            >
+            <ArrowButton href="/contact" onClick={() => setMenuOpen(false)}>
               Explore More
-              <span className="w-5 h-5 bg-black rounded-full flex items-center justify-center">
-                <ArrowIcon color="white" />
-              </span>
-            </Link>
+            </ArrowButton>
           </div>
         </div>
       </div>
     </>
-  );
-}
-
-function ArrowIcon({ color = "black" }: { color?: string }) {
-  return (
-    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-      <path
-        d="M2 8L8 2M8 2H3M8 2V7"
-        stroke={color}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
   );
 }
