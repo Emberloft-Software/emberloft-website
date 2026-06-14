@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import PixelPlasmaBackground from "./PixelPlasmaBackground";
+import ArrowButton from "../ArrowButton";
 
 const services = [
   {
@@ -38,7 +39,7 @@ const services = [
   },
 ];
 
-export default function ServicesSectionPixelBg() {
+export default function ServicesSectionPixelBgV3() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -145,19 +146,21 @@ export default function ServicesSectionPixelBg() {
       ref={sectionRef}
       className="relative w-full overflow-hidden py-[8vh] px-[5vw]"
     >
-      {/* Pixelated plasma wave background */}
+      {/* Pixelated plasma — glow that drifts in an orbit around the bottom-right corner */}
       <PixelPlasmaBackground
         background="#0A0A0A"
         plasmaColor="#0A0A0A"
         plasmaShadow="#290052"
-        pixelDensity={74}
-        pixelRoundness={0.2}
+        pixelDensity={120}
+        pixelRoundness={0.3}
         animationSpeed={2}
         plasmaIntensity={1.8}
         plasmaContrast={1.6}
-        waveFrequency={1}
-        waveAngle={102}
-        waveThickness={0.7}
+        mode="drift"
+        originX={0.9}
+        originY={0.9}
+        glowRadius={0.45}
+        driftRadius={0.2}
       />
 
       {/* Content layer (above plasma canvas) */}
@@ -299,6 +302,13 @@ export default function ServicesSectionPixelBg() {
           </div>
         </div>
 
+      </div>
+
+      {/* CTA — direct to pricing */}
+      <div className="mt-[6vh]">
+        <ArrowButton href="/pricing" variant="solid">
+          View Pricing
+        </ArrowButton>
       </div>
       </div>
     </section>
