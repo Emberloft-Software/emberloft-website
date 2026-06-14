@@ -108,7 +108,7 @@ export default function HeroSection() {
           </div>
 
           {/* Watermark — anchored at the bottom of the hero, flush with content edges */}
-          <div className="mb-6 md:mb-10 pointer-events-none select-none overflow-hidden">
+          <div className="mb-6 md:mb-10 pointer-events-none select-none overflow-show">
             <p
               className="font-geist text-[18vw] font-medium tracking-tighter leading-none whitespace-nowrap text-[#F5F5F5] ml-[-0.02em]"
               style={{ mixBlendMode: "exclusion" }}
