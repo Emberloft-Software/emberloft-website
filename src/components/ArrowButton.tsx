@@ -1,15 +1,15 @@
 import Link from "next/link";
 
 const variants = {
-  solid: "bg-[#EEBA0B] text-black hover:bg-[#F2F2F0]",
+  solid: "bg-[#EEBA0B] text-[#0A0A0A] hover:bg-[#F2F2F0]",
   outline:
-    "border border-white/40 text-white backdrop-blur-sm hover:bg-[#F2F2F0] hover:text-black hover:border-[#F2F2F0]",
+    "border border-[#F5F5F5]/40 text-[#F5F5F5] backdrop-blur-sm hover:bg-[#F2F2F0] hover:text-[#0A0A0A] hover:border-[#F2F2F0]",
 };
 
 const iconVariants = {
-  solid: "bg-black",
+  solid: "bg-[#0A0A0A] text-[#F5F5F5]",
   outline:
-    "border border-white/40 group-hover:bg-black group-hover:border-black",
+    "bg-[#F5F5F5] border border-[#F5F5F5] text-[#0A0A0A] group-hover:bg-[#0A0A0A] group-hover:border-[#0A0A0A] group-hover:text-[#F5F5F5]",
 };
 
 type ArrowButtonProps = {
@@ -25,28 +25,28 @@ export default function ArrowButton({
   children,
   variant = "solid",
   onClick,
-  className = "",
+  className = "inline-flex",
 }: ArrowButtonProps) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className={`group inline-flex h-12 items-center gap-2 rounded-full font-semibold text-base pl-6 pr-3 py-2 hover:pl-3 hover:flex-row-reverse transition-all duration-800 ease-out ${variants[variant]} ${className}`}
+      className={`group relative h-12 items-center overflow-hidden rounded-full font-semibold text-base pl-6 pr-12 hover:pl-12 hover:pr-6 transition-all duration-800 ease-in-out ${variants[variant]} ${className}`}
     >
-      <span className="transition-transform duration-800 ease-out group-hover:translate-x-1">
+      <span className="relative z-0">
         {children}
       </span>
       <span
-        className={`self-stretch aspect-square rounded-full flex items-center justify-center transition-all duration-800 ease-out group-hover:-translate-x-1 ${iconVariants[variant]}`}
+        className={`absolute z-10 top-1/2 -translate-y-1/2 left-[calc(100%-2.75rem)] group-hover:left-1 h-10 w-10 rounded-full flex items-center justify-center transition-all duration-800 ease-in-out ${iconVariants[variant]}`}
       >
-        <ArrowIcon color="white" />
+        <ArrowIcon />
       </span>
     </Link>
   );
 }
 
 export function ArrowIcon({
-  color = "black",
+  color = "currentColor",
   className = "w-1/2 h-1/2",
 }: {
   color?: string;

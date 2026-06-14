@@ -48,22 +48,6 @@ export default function FAQSection() {
   const [animated, setAnimated] = useState(false);
   const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Entrance animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated) {
-          setAnimated(true);
-          observer.disconnect();
-          runEntrance();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, [animated]);
-
   const runEntrance = async () => {
     const { animate, stagger } = await import("animejs");
 
@@ -85,6 +69,22 @@ export default function FAQSection() {
       ease: "easeOutExpo",
     });
   };
+
+  // Entrance animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) {
+          setAnimated(true);
+          observer.disconnect();
+          runEntrance();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [animated]);
 
   // Animate accordion open/close
   const toggleItem = async (index: number) => {
@@ -142,9 +142,8 @@ export default function FAQSection() {
         >
           {/* Label */}
           <div className="flex items-center gap-2 mb-[3vh]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FB4B54]" />
             <span className="font-geist text-[#FB4B54] text-xs font-medium tracking-[0.18em] uppercase">
-              FAQ's
+              ✦ FAQ&apos;s
             </span>
           </div>
 

@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geist.variable} ${instrumentSerif.variable} font-sans bg-black text-white antialiased`}
+        suppressHydrationWarning
       >
         <Navbar />
         {children}

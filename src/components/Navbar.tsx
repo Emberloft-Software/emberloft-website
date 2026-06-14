@@ -89,7 +89,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[90vw] flex items-center justify-between px-2 py-2 rounded-full transition-all duration-500 border ${
+        className={`fixed top-2 left-[5vw] z-50 w-[90vw] flex items-center justify-between px-2 py-2 rounded-full transition-all duration-500 border ${
           scrolled
             ? "bg-[#290052]/50 backdrop-blur-xl border-white/10 shadow-lg shadow-black/20"
             : "bg-white/5 backdrop-blur-md border-white/5"
@@ -98,27 +98,27 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/home"
-          className="flex h-12 items-center gap-2 pl-2 text-white font-semibold text-xl tracking-tight"
+          className="flex h-12 items-center gap-3 pl-2 text-white font-semibold text-2xl tracking-tight"
         >
           <Image
             src="/logo.webp"
             alt="Emberloft logo"
             width={500}
             height={397}
-            className="w-8 md:w-12 h-auto"
+            className="h-9 md:h-12 w-auto"
           />
           emberloft
         </Link>
 
         {/* Nav links pill — desktop only */}
-        <div className="hidden md:flex h-12 items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2">
+        <div className="hidden md:flex h-12 items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`flex h-full items-center justify-center px-4 rounded-full text-[clamp(0.8rem,1vw,1.125rem)] font-medium transition-colors ${
+              className={`flex h-full items-center justify-center px-4 rounded-full text-[clamp(0.8rem,1vw,1.125rem)] font-medium transition-colors duration-800 ease-out ${
                 pathname === link.href
-                  ? "bg-white text-black"
+                  ? "bg-[#F5F5F5] text-[#0A0A0A]"
                   : "text-white/70 hover:text-white hover:bg-white/10"
               }`}
             >
