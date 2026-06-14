@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Footer() {
@@ -190,7 +191,13 @@ export default function Footer() {
         {/* Brand column */}
         <div className="footer-col opacity-0 col-span-2 md:col-span-1 flex flex-col">
           <div className="flex items-center gap-2.5 mb-4">
-            <EmberMark />
+            <Image
+              src="/logo.webp"
+              alt="Emberloft logo"
+              width={500}
+              height={397}
+              className="h-9 w-auto"
+            />
             <span className="font-geist font-extrabold text-xl tracking-tight">
               <span style={{ color: "#EEBA0B" }}>ember</span>
               <span className="text-white">loft</span>
@@ -301,31 +308,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function EmberMark() {
-  return (
-    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true">
-      <path
-        d="M7 17 C4.5 12 0.5 8.5 3 4 C3.8 2 5.5 0.8 6 0.5"
-        stroke="#EEBA0B"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M7 17 C7 11 7 6.5 7 3 C7 1.5 7 0.5 7 0"
-        stroke="#FB4B54"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M7 17 C9.5 12 13.5 8.5 11 4 C10.2 2 8.5 0.8 8 0.5"
-        stroke="#EEBA0B"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-      />
-    </svg>
   );
 }
 
