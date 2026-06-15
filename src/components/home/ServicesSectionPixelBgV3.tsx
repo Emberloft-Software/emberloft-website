@@ -203,7 +203,7 @@ export default function ServicesSectionPixelBgV3() {
             >
               {/* Active left accent bar */}
               <div
-                className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full transition-all duration-300"
+                className="absolute left-0 top-0 bottom-0 w-0.75 rounded-full transition-all duration-300"
                 style={{
                   backgroundColor: activeIndex === i ? "#FB4B54" : "transparent",
                   opacity: activeIndex === i ? 1 : 0,
