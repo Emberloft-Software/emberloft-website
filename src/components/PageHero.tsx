@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { isWebGLAvailable } from "@/lib/webgl";
 
 interface PageHeroProps {
   label: string;
@@ -30,6 +31,7 @@ export default function PageHero({
   useEffect(() => {
     const initVanta = async () => {
       if (vantaEffect.current || !vantaRef.current) return;
+      if (!isWebGLAvailable()) return;
 
       const THREE = await import("three");
       const threeNamespace = { ...THREE };
@@ -105,7 +107,7 @@ export default function PageHero({
   return (
     <section
       ref={vantaRef}
-      className="relative w-full pt-[18vh] pb-[10vh] px-[5vw] overflow-hidden"
+      className="relative w-full pt-[18vh] pb-[10vh] px-[5vw] overflow-hidden bg-[#080008]"
       style={{ minHeight: "45vh" }}
     >
       {/* Bottom gradient fade */}

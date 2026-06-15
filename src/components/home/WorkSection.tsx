@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const items = [
   "take every project.",
@@ -18,7 +19,7 @@ export default function DontSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [started, setStarted] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const isAnimatingRef = useRef(false);
   const slotRefs = useRef<(HTMLDivElement | null)[]>([]);
   const arrowRef = useRef<HTMLImageElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -71,8 +72,8 @@ export default function DontSection() {
     const PAUSE = 1800;
 
     const cycle = async () => {
-      if (isAnimating) return;
-      setIsAnimating(true);
+      if (isAnimatingRef.current) return;
+      isAnimatingRef.current = true;
 
       const { animate, stagger } = await import("animejs");
 
@@ -104,7 +105,7 @@ export default function DontSection() {
         ease: "outBack",
       });
 
-      setIsAnimating(false);
+      isAnimatingRef.current = false;
     };
 
     // Initial drop-in on mount
@@ -131,7 +132,7 @@ export default function DontSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#ffffff] py-16 md:py-[30vh] px-5 md:px-[10vw] flex items-center justify-center overflow-hidden"
+      className="w-screen bg-[#ffffff] py-16 md:py-[30vh] px-[5vw] flex items-center justify-center overflow-hidden"
       style={{ minHeight: "50vh" }}
     >
       <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-[3vw] w-full max-w-5xl mx-auto">
@@ -145,14 +146,17 @@ export default function DontSection() {
             We{" "}
           </span>
           <span className="relative inline-block ml-3">
-            <img
+            <Image
               ref={arrowRef}
               src="/arrow.png"
               alt=""
               aria-hidden="true"
+              width={155}
+              height={123}
               className="absolute opacity-0 pointer-events-none"
               style={{
                 width: "clamp(42px, 4.5vw, 62px)",
+                height: "auto",
                 top: "-45%",
                 right: "-20%",
               }}
@@ -165,7 +169,7 @@ export default function DontSection() {
                 color: "#FB4B54",
               }}
             >
-              don't
+              don&apos;t
             </span>
           </span>
         </div>

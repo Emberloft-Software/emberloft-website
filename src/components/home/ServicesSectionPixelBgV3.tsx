@@ -49,21 +49,6 @@ export default function ServicesSectionPixelBgV3() {
   const detailRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  // Entrance animation on scroll into view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated) {
-          setAnimated(true);
-          runEntrance();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, [animated]);
-
   const runEntrance = async () => {
     const { animate, stagger } = await import("animejs");
 
@@ -95,6 +80,21 @@ export default function ServicesSectionPixelBgV3() {
       });
     }
   };
+
+  // Entrance animation on scroll into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) {
+          setAnimated(true);
+          runEntrance();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [animated]);
 
   // Animate detail panel when active index changes
   useEffect(() => {
@@ -131,7 +131,7 @@ export default function ServicesSectionPixelBgV3() {
       }
     };
     runSwitch();
-  }, [activeIndex]);
+  }, [activeIndex, prevIndex]);
 
   const handleHover = (i: number) => {
     if (i === activeIndex) return;
@@ -144,7 +144,7 @@ export default function ServicesSectionPixelBgV3() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden py-[8vh] px-[5vw]"
+      className="relative w-screen overflow-hidden py-[8vh] px-[5vw]"
     >
       {/* Pixelated plasma — glow that drifts in an orbit around the bottom-right corner */}
       <PixelPlasmaBackground
@@ -203,7 +203,7 @@ export default function ServicesSectionPixelBgV3() {
             >
               {/* Active left accent bar */}
               <div
-                className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full transition-all duration-300"
+                className="absolute left-0 top-0 bottom-0 w-0.75 rounded-full transition-all duration-300"
                 style={{
                   backgroundColor: activeIndex === i ? "#FB4B54" : "transparent",
                   opacity: activeIndex === i ? 1 : 0,
@@ -281,7 +281,7 @@ export default function ServicesSectionPixelBgV3() {
 
           {/* Text details */}
           <div>
-            <h4 className="font-geist font-semibold text-white text-lg mb-[1vh]">
+            <h4 className="font-geist font-medium text-white text-lg mb-[1vh]">
               {active.title}
             </h4>
             <p className="font-geist text-white/50 text-sm leading-relaxed mb-[2vh]">

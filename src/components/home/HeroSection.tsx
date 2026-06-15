@@ -39,7 +39,7 @@ export default function HeroSection() {
     let animeInstance: JSAnimation | undefined;
 
     const initAnime = async () => {
-      const { animate } = await import("animejs");
+      const { animate, cubicBezier } = await import("animejs");
       const container = drumRef.current;
       if (!container) return;
 
@@ -49,7 +49,7 @@ export default function HeroSection() {
       animeInstance = animate(container, {
         translateY: [`0px`, `-${itemHeight * totalItems}px`],
         duration: 8000,
-        ease: "cubicBezier(0.25, 0.46, 0.45, 0.94)",
+        ease: cubicBezier(0.25, 0.46, 0.45, 0.94),
         loop: true,
         delay: 1200,
       });
