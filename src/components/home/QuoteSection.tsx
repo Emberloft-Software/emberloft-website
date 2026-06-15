@@ -2,12 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Words that are "faded" (light gray) in the reference
-const fadedWords = new Set([
-  "There", "Is", "No", "Longer", "Anything", "To", "Add,",
-  "But", "When", "There", "Is", "No", "Longer", "Anything", "To",
-]);
-
 // Split into word segments with style info
 const quoteSegments: { text: string; style: "bold" | "faded" | "italic" }[] = [
   { text: '"It Seems That Perfection Is Finally Attained Not When ', style: "bold" },
@@ -30,21 +24,6 @@ export default function QuoteSection() {
       style: seg.style,
     }))
   );
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated) {
-          setAnimated(true);
-          observer.disconnect();
-          runAnimation();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, [animated]);
 
   const runAnimation = async () => {
     const { animate, stagger } = await import("animejs");
@@ -73,10 +52,25 @@ export default function QuoteSection() {
     }
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) {
+          setAnimated(true);
+          observer.disconnect();
+          runAnimation();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [animated]);
+
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#ffffff] py-[20vh] px-[6vw] flex flex-col items-center justify-center"
+      className="w-screen bg-[#ffffff] py-[20vh] px-[5vw] flex flex-col items-center justify-center"
       style={{ minHeight: "40vh" }}
     >
       <div className="max-w-4xl w-full mx-auto text-center">
@@ -84,7 +78,7 @@ export default function QuoteSection() {
         {/* Quote */}
         <p
           ref={quoteRef}
-          className="leading-[1.25] mb-[3vh]"
+          className="leading-tight mb-[3vh]"
           style={{ fontSize: "clamp(1.5rem, 3.2vw, 2.6rem)" }}
         >
           {words.map((w, i) => (

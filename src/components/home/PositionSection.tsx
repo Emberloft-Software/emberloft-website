@@ -125,7 +125,7 @@ export default function PositionSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#F2F2F0] py-[10vh] px-[5vw] flex flex-col items-center text-center"
+      className="w-screen bg-[#F2F2F0] py-[10vh] px-[5vw] flex flex-col items-center text-center"
       style={{ minHeight: "50vh", justifyContent: "center" }}
     >
       {/* Label */}

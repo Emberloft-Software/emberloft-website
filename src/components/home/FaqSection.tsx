@@ -131,7 +131,7 @@ export default function FAQSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#ffffff] py-[8vh] px-[5vw]"
+      className="w-screen bg-[#ffffff] py-[8vh] px-[5vw]"
     >
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-[6vw]">
 

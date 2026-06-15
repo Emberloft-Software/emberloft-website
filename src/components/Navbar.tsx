@@ -45,7 +45,7 @@ export default function Navbar() {
     }
 
     const run = async () => {
-      const { animate, stagger } = await import("animejs");
+      const { animate, stagger, cubicBezier } = await import("animejs");
       const menu = menuRef.current;
       if (!menu) return;
 
@@ -58,7 +58,7 @@ export default function Navbar() {
         animate(menu, {
           clipPath: ["inset(0 0 100% 0)", "inset(0 0 0% 0)"],
           duration: 650,
-          ease: "cubicBezier(0.76, 0, 0.24, 1)",
+          ease: cubicBezier(0.76, 0, 0.24, 1),
         });
         animate(items, {
           opacity: [0, 1],
@@ -78,7 +78,7 @@ export default function Navbar() {
         await animate(menu, {
           clipPath: ["inset(0 0 0% 0)", "inset(0 0 100% 0)"],
           duration: 500,
-          ease: "cubicBezier(0.76, 0, 0.24, 1)",
+          ease: cubicBezier(0.76, 0, 0.24, 1),
         });
         menu.style.pointerEvents = "none";
       }

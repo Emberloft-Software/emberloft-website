@@ -1,7 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import PositionSection from "@/components/home/PositionSection";
 import AboutSection from "@/components/home/AboutSection";
-import ServicesSection from "@/components/home/ServicesSection";
 import ServicesSectionPixelBgV3 from "@/components/home/ServicesSectionPixelBgV3";
 import WorkSection from "@/components/home/WorkSection";
 import QuoteSection from "@/components/home/QuoteSection";
@@ -15,7 +14,6 @@ export default function HomePage() {
       <HeroSection />
         <PositionSection />
         <AboutSection />
-        <ServicesSection />
         <ServicesSectionPixelBgV3 />
         <WorkSection />
         <QuoteSection />

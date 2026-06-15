@@ -59,7 +59,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#F2F2F0] py-20 px-[5vw]"
+      className="w-screen bg-[#F2F2F0] py-20 px-[5vw]"
     >
       {/* Top row — label + heading */}
       <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16 mb-12">
@@ -89,7 +89,7 @@ export default function AboutSection() {
         {/* ── Col 1: Large card with image below text ── */}
         <div className="about-card opacity-0 bg-white rounded-2xl overflow-hidden flex flex-col sm:row-span-2">
           <div className="p-6">
-            <h3 className="font-geist font-semibold text-black text-xl sm:text-2xl mb-2">
+            <h3 className="font-geist font-medium text-black text-xl sm:text-2xl mb-2">
               Craft over volume.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
@@ -111,7 +111,7 @@ export default function AboutSection() {
         <div className="flex flex-col gap-4 md:gap-6">
           {/* Text card 1 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-semibold text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-lg mb-2">
               Strategy before surface.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
@@ -121,7 +121,7 @@ export default function AboutSection() {
 
           {/* Text card 2 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-semibold text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-lg mb-2">
               Senior hands only.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
@@ -153,7 +153,7 @@ export default function AboutSection() {
             {/* Dark gradient overlay */}
             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="font-geist font-semibold text-white text-xl sm:text-2xl mb-1.5 leading-tight">
+              <h3 className="font-geist font-medium text-white text-xl sm:text-2xl mb-1.5 leading-tight">
                 Accountable to the work.
               </h3>
               <p className="font-geist text-white/70 text-sm leading-relaxed">
@@ -164,7 +164,7 @@ export default function AboutSection() {
 
           {/* Text card 3 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-semibold text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-lg mb-2">
               One team, start to finish.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
@@ -175,7 +175,7 @@ export default function AboutSection() {
 
           {/* Text card 4 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-semibold text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-lg mb-2">
               Built to last.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">

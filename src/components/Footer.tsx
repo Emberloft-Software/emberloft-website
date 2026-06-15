@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { isWebGLAvailable } from "@/lib/webgl";
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -15,6 +16,7 @@ export default function Footer() {
   useEffect(() => {
     const initVanta = async () => {
       if (vantaEffect.current || !vantaRef.current) return;
+      if (!isWebGLAvailable()) return;
 
       const THREE = await import("three");
       (window as any).THREE = { ...THREE };
@@ -98,7 +100,7 @@ export default function Footer() {
       {/* ── CTA block with Vanta clouds ── */}
       <div
         ref={vantaRef}
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden bg-[#080008]"
       >
         {/* Bottom fade so clouds blend into the dark footer grid */}
         <div
