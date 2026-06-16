@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import ArrowButton from "./ArrowButton";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { isWebGLAvailable } from "@/lib/webgl";
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<{ destroy: () => void } | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const [animated, setAnimated] = useState(false);
 
@@ -35,6 +39,44 @@ export default function Footer() {
     }
   }, []);
 
+  // ── Vanta clouds ──────────────────────────────────────
+  useEffect(() => {
+    const initVanta = async () => {
+      if (vantaEffect.current || !vantaRef.current) return;
+      if (!isWebGLAvailable()) return;
+
+      const THREE = await import("three");
+      (window as unknown as Record<string, unknown>).THREE = { ...THREE };
+
+      await new Promise((r) => setTimeout(r, 50));
+
+      const CLOUDS = (await import("vanta/dist/vanta.clouds.min")).default;
+
+      if (!vantaRef.current) return;
+
+      vantaEffect.current = CLOUDS({
+        el: vantaRef.current,
+        THREE: (window as unknown as Record<string, unknown>).THREE,
+        backgroundColor: 0x080008,
+        skyColor: 0x0d000d,
+        cloudColor: 0x290052,
+        cloudShadowColor: 0x100008,
+        sunColor: 0xfb4b54,
+        sunGlareColor: 0xfb4b54,
+        sunlightColor: 0xfb4b54,
+        speed: 0.8,
+        backgroundAlpha: 1,
+      });
+    };
+
+    initVanta();
+
+    return () => {
+      vantaEffect.current?.destroy();
+      vantaEffect.current = null;
+    };
+  }, []);
+
   // ── Entrance animation ────────────────────────────────
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,7 +86,7 @@ export default function Footer() {
           runAnimation();
         }
       },
-      { threshold: 0.08 }
+      { threshold: 0.08 },
     );
     if (footerRef.current) observer.observe(footerRef.current);
     return () => observer.disconnect();
@@ -55,13 +97,15 @@ export default function Footer() {
       <div className="border-t border-white/10" />
 
       {/* ── CTA block ── */}
-      <div className="relative w-full overflow-hidden bg-[#080008]">
+      <div
+        ref={vantaRef}
+        className="relative w-full overflow-hidden bg-[#080008]"
+      >
         {/* Bottom fade into the dark footer grid */}
         <div
           className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-10"
           style={{
-            background:
-              "linear-gradient(to bottom, transparent, #0D0D0D)",
+            background: "linear-gradient(to bottom, transparent, #0D0D0D)",
           }}
         />
 
@@ -69,8 +113,7 @@ export default function Footer() {
         <div
           className="absolute top-0 left-0 right-0 h-16 pointer-events-none z-10"
           style={{
-            background:
-              "linear-gradient(to top, transparent, rgba(8,0,8,0.6))",
+            background: "linear-gradient(to top, transparent, rgba(8,0,8,0.6))",
           }}
         />
 
@@ -118,21 +161,12 @@ export default function Footer() {
           </h2>
 
           <div className="cta-line opacity-0 flex flex-wrap justify-center gap-3">
-            <a
-              href="#"
-              className="flex items-center gap-2 bg-[#EEBA0B] text-black font-medium text-sm px-6 py-3.5 rounded-full hover:brightness-110 transition-all"
-            >
+            <ArrowButton href="#" variant="solid">
               Apply to Work With Us
-              <span className="w-5 h-5 bg-black rounded-full flex items-center justify-center">
-                <ArrowIcon color="white" />
-              </span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 border border-white/20 text-white/70 text-sm font-medium px-6 py-3.5 rounded-full hover:bg-white/10 hover:text-white transition-colors"
-            >
+            </ArrowButton>
+            <ArrowButton href="#" variant="outline">
               Let&apos;s Talk
-            </a>
+            </ArrowButton>
           </div>
         </div>
       </div>
@@ -160,8 +194,10 @@ export default function Footer() {
             </span>
           </div>
 
-          <p className="font-geist text-white/40 text-sm leading-relaxed">
-            Where the work<br />never cools.
+          <p className="font-geist text-white/40 text-[clamp(0.85rem,1.2vw,1rem)] leading-relaxed">
+            Where the work
+            <br />
+            never cools.
           </p>
 
           <div className="mt-6 inline-flex items-center gap-2 border border-white/10 rounded-full px-3.5 py-1.5 w-fit">
@@ -177,26 +213,28 @@ export default function Footer() {
 
         {/* Services */}
         <div className="footer-col opacity-0">
-          <p className="font-geist text-white/25 text-[0.6rem] tracking-[0.2em] uppercase mb-5">
+          <p className="font-geist text-[#EEBA0B] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold tracking-[0.15em] uppercase mb-5">
             Services
           </p>
           <ul className="flex flex-col gap-3.5">
-            {["Web Development", "Mobile", "UI / UX", "AI Integration"].map((s) => (
-              <li key={s}>
-                <a
-                  href="#"
-                  className="font-geist text-white/50 text-sm hover:text-white transition-colors duration-200"
-                >
-                  {s}
-                </a>
-              </li>
-            ))}
+            {["Web Development", "Mobile", "UI / UX", "AI Integration"].map(
+              (s) => (
+                <li key={s}>
+                  <a
+                    href="#"
+                    className="font-geist text-white/50 text-[clamp(0.8rem,1.1vw,0.9rem)] hover:text-white transition-colors duration-200"
+                  >
+                    {s}
+                  </a>
+                </li>
+              ),
+            )}
           </ul>
         </div>
 
         {/* Studio */}
         <div className="footer-col opacity-0">
-          <p className="font-geist text-white/25 text-[0.6rem] tracking-[0.2em] uppercase mb-5">
+          <p className="font-geist text-[#EEBA0B] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold tracking-[0.15em] uppercase mb-5">
             Studio
           </p>
           <ul className="flex flex-col gap-3.5">
@@ -204,7 +242,7 @@ export default function Footer() {
               <li key={s}>
                 <a
                   href="#"
-                  className="font-geist text-white/50 text-sm hover:text-white transition-colors duration-200"
+                  className="font-geist text-white/50 text-[clamp(0.8rem,1.1vw,0.9rem)] hover:text-white transition-colors duration-200"
                 >
                   {s}
                 </a>
@@ -215,7 +253,7 @@ export default function Footer() {
 
         {/* Connect */}
         <div className="footer-col opacity-0">
-          <p className="font-geist text-white/25 text-[0.6rem] tracking-[0.2em] uppercase mb-5">
+          <p className="font-geist text-[#EEBA0B] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold tracking-[0.15em] uppercase mb-5">
             Connect
           </p>
           <ul className="flex flex-col gap-3.5">
@@ -223,12 +261,15 @@ export default function Footer() {
               { label: "Twitter / X", href: "#" },
               { label: "LinkedIn", href: "#" },
               { label: "Dribbble", href: "#" },
-              { label: "hello@emberloft.io", href: "mailto:hello@emberloft.io" },
+              {
+                label: "hello@emberloft.io",
+                href: "mailto:hello@emberloft.io",
+              },
             ].map((s) => (
               <li key={s.label}>
                 <a
                   href={s.href}
-                  className="font-geist text-white/50 text-sm hover:text-white transition-colors duration-200"
+                  className="font-geist text-white/50 text-[clamp(0.8rem,1.1vw,0.9rem)] hover:text-white transition-colors duration-200"
                 >
                   {s.label}
                 </a>
@@ -242,7 +283,7 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div className="px-[5vw] py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <span className="font-geist text-white/20 text-xs">
+        <span className="font-geist text-white/40 text-xs">
           © 2026 Emberloft Studio. All rights reserved.
         </span>
 
@@ -251,13 +292,13 @@ export default function Footer() {
         <div className="flex items-center gap-6">
           <a
             href="#"
-            className="font-geist text-white/20 text-xs hover:text-white/50 transition-colors duration-200"
+            className="font-geist text-white/40 text-xs hover:text-white/50 transition-colors duration-200"
           >
             Privacy
           </a>
           <a
             href="#"
-            className="font-geist text-white/20 text-xs hover:text-white/50 transition-colors duration-200"
+            className="font-geist text-white/40 text-xs hover:text-white/50 transition-colors duration-200"
           >
             Terms
           </a>
@@ -265,9 +306,12 @@ export default function Footer() {
       </div>
 
       {/* ── Closing wordmark — bookend to the Hero watermark ── */}
-      <div className="px-[5vw] pb-[2vh] overflow-hidden pointer-events-none select-none">
-        <p className="font-geist text-[18vw] font-medium tracking-tighter leading-none whitespace-nowrap text-[#F5F5F5] ml-[-0.02em]">
+      <div className="px-[5vw] pb-[2vh] overflow-hidden pointer-events-none select-none flex items-baseline justify-between">
+        <p className="font-geist text-[17vw] font-medium tracking-tighter leading-none text-[#F5F5F5] ml-[-0.02em]">
           emberloft
+        </p>
+        <p className="font-geist text-[5.5vw] font-medium tracking-tighter leading-none text-[#F5F5F5]">
+          studio
         </p>
       </div>
     </footer>
@@ -276,7 +320,13 @@ export default function Footer() {
 
 function RisingWisps() {
   return (
-    <svg width="26" height="20" viewBox="0 0 26 20" fill="none" aria-hidden="true">
+    <svg
+      width="26"
+      height="20"
+      viewBox="0 0 26 20"
+      fill="none"
+      aria-hidden="true"
+    >
       <path
         d="M6 18 C4.5 13 1 9 3 5 C3.6 3 5 1.5 5.5 1"
         stroke="white"
@@ -296,19 +346,6 @@ function RisingWisps() {
         stroke="white"
         strokeOpacity="0.15"
         strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowIcon({ color = "black" }: { color?: string }) {
-  return (
-    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-      <path
-        d="M2 8L8 2M8 2H3M8 2V7"
-        stroke={color}
-        strokeWidth="1.5"
         strokeLinecap="round"
       />
     </svg>
