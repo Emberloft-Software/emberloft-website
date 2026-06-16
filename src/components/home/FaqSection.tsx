@@ -131,7 +131,7 @@ export default function FAQSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-screen bg-[#ffffff] py-[8vh] px-[5vw]"
+      className="w-screen bg-[#ffffff] py-[12vh] px-[5vw]"
     >
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-[6vw]">
 
@@ -148,8 +148,8 @@ export default function FAQSection() {
           </div>
 
           <h2
-            className="font-geist font-extrabold text-black leading-[0.95]"
-            style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)" }}
+            className="font-geist font-medium text-black leading-[0.95]"
+            style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)", letterSpacing: "-0.05em" }}
           >
             Things
             <br />
@@ -157,11 +157,11 @@ export default function FAQSection() {
             <br />
             <span
               className="font-instrument-serif font-normal italic"
-              style={{ color: "#FB4B54" }}
+              style={{ color: "#FB4B54", letterSpacing: "0" }}
             >
               knowing
             </span>
-            <span className="font-geist font-extrabold text-black">.</span>
+            <span className="font-geist font-medium text-black">.</span>
           </h2>
         </div>
 

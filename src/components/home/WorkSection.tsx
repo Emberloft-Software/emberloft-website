@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 
 const items = [
   "take every project.",
@@ -13,7 +12,7 @@ const items = [
 
 // How many slots visible above and below center
 const VISIBLE_ABOVE = 2;
-const ITEM_HEIGHT_VH = 7; // vh per slot
+const ITEM_HEIGHT_VH = 10; // vh per slot
 
 export default function DontSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -21,7 +20,7 @@ export default function DontSection() {
   const [started, setStarted] = useState(false);
   const isAnimatingRef = useRef(false);
   const slotRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const arrowRef = useRef<HTMLImageElement>(null);
+  const arrowRef = useRef<SVGSVGElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Total visible slots = VISIBLE_ABOVE + center + VISIBLE_ABOVE
@@ -81,28 +80,28 @@ export default function DontSection() {
       // We animate all slots simultaneously — each moves "up" one position
       const slots = slotRefs.current.filter(Boolean) as HTMLDivElement[];
 
-      // Step 1: all slots fall out downward (fast)
+      // Step 1: all slots fall out downward (smooth)
       await animate(slots, {
         translateY: [0, `${ITEM_HEIGHT_VH}vh`],
         opacity: [1, 0],
-        rotateX: [0, -35],
-        duration: 200,
-        delay: stagger(30, { from: "last" }),
-        ease: "inCubic",
+        rotateX: [0, -18],
+        duration: 260,
+        delay: stagger(40, { from: "last" }),
+        ease: "inOutQuad",
       });
 
       // Step 2: update active index (React re-renders text)
       setActiveIndex((prev) => (prev + 1) % items.length);
       await new Promise((r) => setTimeout(r, 16));
 
-      // Step 3: all slots drop in from above (with bounce)
+      // Step 3: all slots drop in from above (smooth)
       await animate(slots, {
         translateY: [`-${ITEM_HEIGHT_VH}vh`, "0vh"],
         opacity: [0, 1],
-        rotateX: [35, 0],
-        duration: 350,
-        delay: stagger(40, { from: "first" }),
-        ease: "outBack",
+        rotateX: [18, 0],
+        duration: 450,
+        delay: stagger(50, { from: "first" }),
+        ease: "outQuad",
       });
 
       isAnimatingRef.current = false;
@@ -115,10 +114,10 @@ export default function DontSection() {
       animate(slots, {
         translateY: [`-${ITEM_HEIGHT_VH * 1.5}vh`, "0vh"],
         opacity: [0, 1],
-        rotateX: [40, 0],
-        duration: 500,
-        delay: stagger(60, { from: "first" }),
-        ease: "outBack",
+        rotateX: [20, 0],
+        duration: 550,
+        delay: stagger(70, { from: "first" }),
+        ease: "outQuad",
       });
     };
     init();
@@ -132,40 +131,57 @@ export default function DontSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-screen bg-[#ffffff] py-16 md:py-[30vh] px-[5vw] flex items-center justify-center overflow-hidden"
-      style={{ minHeight: "50vh" }}
+      className="w-screen bg-[#ffffff] py-[12vh] px-[5vw] flex items-center justify-center overflow-hidden"
+      style={{ minHeight: "80vh" }}
     >
-      <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-[3vw] w-full max-w-5xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-[4vw] w-full max-w-6xl mx-auto">
 
         {/* "We don't" heading */}
         <div className="relative shrink-0 flex items-center select-none">
           <span
-            className="font-geist font-extrabold text-black"
-            style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", lineHeight: 1 }}
+            className="font-geist font-medium text-black"
+            style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.6rem)", lineHeight: 1, letterSpacing: "-0.05em" }}
           >
             We{" "}
           </span>
           <span className="relative inline-block ml-3">
-            <Image
+            <svg
               ref={arrowRef}
-              src="/arrow.png"
-              alt=""
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
               aria-hidden="true"
-              width={155}
-              height={123}
               className="absolute opacity-0 pointer-events-none"
               style={{
-                width: "clamp(42px, 4.5vw, 62px)",
+                width: "clamp(46px, 5.5vw, 76px)",
                 height: "auto",
-                top: "-45%",
-                right: "-20%",
+                top: "-3vw",
+                right: "-3vw",
               }}
-            />
+            >
+              <path
+                d="M8 6 C 30 2, 54 14, 48 38"
+                stroke="#FB4B54"
+                strokeWidth="2"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M40 32 L48 38 L42 48"
+                stroke="#FB4B54"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </svg>
             <span
               className="font-instrument-serif italic font-normal"
               style={{
-                fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)",
+                fontSize: "clamp(2.6rem, 5.5vw, 4.6rem)",
                 lineHeight: 1,
+                letterSpacing: "0",
                 color: "#FB4B54",
               }}
             >
@@ -194,10 +210,10 @@ export default function DontSection() {
 
             const fontSize =
               distFromCenter === 0
-                ? "clamp(1.15rem, 4.5vw, 3.8rem)"
+                ? "clamp(2.2rem, 5.5vw, 4.4rem)"
                 : distFromCenter === 1
-                ? "clamp(0.9rem, 3vw, 2.6rem)"
-                : "clamp(0.7rem, 2.2vw, 1.9rem)";
+                ? "clamp(1.1rem, 3vw, 2.6rem)"
+                : "clamp(0.85rem, 2.2vw, 1.9rem)";
 
             return (
               <div
@@ -206,17 +222,24 @@ export default function DontSection() {
                 className="flex items-center"
                 style={{
                   height: `${ITEM_HEIGHT_VH}vh`,
+                  minWidth: 0,
                   transformOrigin: "center center",
                   willChange: "transform, opacity",
                 }}
               >
                 <span
-                  className="font-geist font-extrabold text-black transition-all duration-300 whitespace-nowrap leading-none"
+                  className="font-geist font-medium text-black transition-all duration-300 whitespace-nowrap"
                   style={{
                     fontSize,
                     opacity,
+                    letterSpacing: "-0.05em",
+                    lineHeight: isCenter ? 1.3 : 1,
                     borderLeft: isCenter ? "3px solid #FB4B54" : "3px solid transparent",
                     paddingLeft: "0.6em",
+                    display: "block",
+                    width: "100%",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
                   }}
                 >
                   {items[itemIdx]}

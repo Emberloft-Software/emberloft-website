@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const steps = [
   {
@@ -32,28 +32,12 @@ const steps = [
 export default function CapabilitiesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const lineRef = useRef<SVGLineElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [animated, setAnimated] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated) {
-          setAnimated(true);
-          observer.disconnect();
-          runAnimation();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, [animated]);
-
-  const runAnimation = async () => {
-    const { animate, createTimeline, stagger, svg, createDrawable } = await import("animejs");
+  const runAnimation = useCallback(async () => {
+    const { createTimeline } = await import("animejs");
 
     const tl = createTimeline({ defaults: { ease: "outExpo" } });
 
@@ -82,7 +66,22 @@ export default function CapabilitiesSection() {
         duration: 500,
       }, "-=300");
     });
-  };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) {
+          setAnimated(true);
+          observer.disconnect();
+          runAnimation();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [animated, runAnimation]);
 
   return (
     <section
@@ -114,7 +113,7 @@ export default function CapabilitiesSection() {
 
         {/* Vertical line track */}
         <div
-          className="absolute left-[19px] top-5 bottom-5 w-px"
+          className="absolute left-4.75 top-5 bottom-5 w-px"
           style={{ backgroundColor: "rgba(255,255,255,0.06)" }}
         />
 

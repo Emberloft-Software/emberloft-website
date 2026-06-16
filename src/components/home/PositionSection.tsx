@@ -125,7 +125,7 @@ export default function PositionSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-screen bg-[#F2F2F0] py-[10vh] px-[5vw] flex flex-col items-center text-center"
+      className="w-screen bg-[#F2F2F0] py-[12vh] px-[5vw] flex flex-col items-center text-center"
       style={{ minHeight: "50vh", justifyContent: "center" }}
     >
       {/* Label */}
@@ -163,7 +163,7 @@ export default function PositionSection() {
                 <span
                   key={wi}
                   className="font-instrument-serif font-normal italic"
-                  style={{ color: "#FB4B54" }}
+                  style={{ color: "#FB4B54", letterSpacing: "0" }}
                 >
                   {w.text}
                 </span>

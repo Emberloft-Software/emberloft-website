@@ -4,8 +4,14 @@ import { useEffect, useRef, useState } from "react";
 
 // Split into word segments with style info
 const quoteSegments: { text: string; style: "bold" | "faded" | "italic" }[] = [
-  { text: '"It Seems That Perfection Is Finally Attained Not When ', style: "bold" },
-  { text: "There Is No Longer Anything To Add, But When There Is No Longer Anything To ", style: "faded" },
+  {
+    text: '"It Seems That Perfection Is Finally Attained Not When ',
+    style: "bold",
+  },
+  {
+    text: "There Is No Longer Anything To Add, But When There Is No Longer Anything To ",
+    style: "faded",
+  },
   { text: "take away.", style: "italic" },
   { text: '"', style: "bold" },
 ];
@@ -19,10 +25,13 @@ export default function QuoteSection() {
 
   // Build flat word list for individual animation
   const words = quoteSegments.flatMap((seg) =>
-    seg.text.split(" ").filter(Boolean).map((word) => ({
-      word: word + " ",
-      style: seg.style,
-    }))
+    seg.text
+      .split(" ")
+      .filter(Boolean)
+      .map((word) => ({
+        word: word + " ",
+        style: seg.style,
+      })),
   );
 
   const runAnimation = async () => {
@@ -61,7 +70,7 @@ export default function QuoteSection() {
           runAnimation();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -70,33 +79,40 @@ export default function QuoteSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-screen bg-[#ffffff] py-[20vh] px-[5vw] flex flex-col items-center justify-center"
+      className="w-screen bg-[#ffffff] py-[12vh] px-[5vw] flex flex-col items-center justify-center"
       style={{ minHeight: "40vh" }}
     >
       <div className="max-w-4xl w-full mx-auto text-center">
-
         {/* Quote */}
         <p
           ref={quoteRef}
           className="leading-tight mb-[3vh]"
-          style={{ fontSize: "clamp(1.5rem, 3.2vw, 2.6rem)" }}
+          style={{ fontSize: "clamp(1.5rem, 3.2vw, 5.6rem)" }}
         >
           {words.map((w, i) => (
             <span
               key={i}
-              ref={(el) => { wordRefs.current[i] = el; }}
+              ref={(el) => {
+                wordRefs.current[i] = el;
+              }}
               className="inline"
               style={{ opacity: 0 }}
             >
               {w.style === "bold" && (
-                <span className="font-geist font-extrabold text-black">
+                <span
+                  className="font-geist font-medium text-black"
+                  style={{ letterSpacing: "-0.05em" }}
+                >
                   {w.word}
                 </span>
               )}
               {w.style === "faded" && (
                 <span
-                  className="font-geist font-extrabold"
-                  style={{ color: "rgba(0,0,0,0.22)" }}
+                  className="font-geist font-medium"
+                  style={{
+                    color: "rgba(0,0,0,0.22)",
+                    letterSpacing: "-0.05em",
+                  }}
                 >
                   {w.word}
                 </span>
@@ -104,7 +120,7 @@ export default function QuoteSection() {
               {w.style === "italic" && (
                 <span
                   className="font-instrument-serif font-normal italic"
-                  style={{ color: "#5B4FCF" }}
+                  style={{ color: "#5B4FCF", letterSpacing: "0" }}
                 >
                   {w.word}
                 </span>
@@ -121,7 +137,6 @@ export default function QuoteSection() {
         >
           — Antoine de Saint-Exupéry · Wind, Sand and Stars (1939)
         </p>
-
       </div>
     </section>
   );

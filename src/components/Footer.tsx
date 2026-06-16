@@ -1,73 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { isWebGLAvailable } from "@/lib/webgl";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const vantaRef = useRef<HTMLDivElement>(null);
-  const vantaEffect = useRef<any>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const [animated, setAnimated] = useState(false);
 
-  // ── Vanta clouds ──────────────────────────────────────
-  useEffect(() => {
-    const initVanta = async () => {
-      if (vantaEffect.current || !vantaRef.current) return;
-      if (!isWebGLAvailable()) return;
-
-      const THREE = await import("three");
-      (window as any).THREE = { ...THREE };
-
-      await new Promise((r) => setTimeout(r, 50));
-
-      const CLOUDS = (await import("vanta/dist/vanta.clouds.min")).default;
-
-      if (!vantaRef.current) return;
-
-      vantaEffect.current = CLOUDS({
-        el: vantaRef.current,
-        THREE: (window as any).THREE,
-        // Deep near-black base
-        backgroundColor: 0x080008,
-        // Cloud colors pulled from emberloft palette
-        skyColor: 0x0d000d,
-        cloudColor: 0x290052,       // deep purple clouds
-        cloudShadowColor: 0x100008, // very dark shadow
-        sunColor: 0xFB4B54,         // red sun glow
-        sunGlareColor: 0xFB4B54,
-        sunlightColor: 0xFB4B54,
-        speed: 0.8,
-        backgroundAlpha: 1,
-      });
-    };
-
-    initVanta();
-
-    return () => {
-      vantaEffect.current?.destroy();
-      vantaEffect.current = null;
-    };
-  }, []);
-
-  // ── Entrance animation ────────────────────────────────
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated) {
-          setAnimated(true);
-          runAnimation();
-        }
-      },
-      { threshold: 0.08 }
-    );
-    if (footerRef.current) observer.observe(footerRef.current);
-    return () => observer.disconnect();
-  }, [animated]);
-
-  const runAnimation = async () => {
+  const runAnimation = useCallback(async () => {
     const { animate, stagger } = await import("animejs");
 
     const ctaLines = ctaRef.current?.querySelectorAll(".cta-line");
@@ -91,18 +33,30 @@ export default function Footer() {
         ease: "outExpo",
       });
     }
-  };
+  }, []);
+
+  // ── Entrance animation ────────────────────────────────
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) {
+          setAnimated(true);
+          runAnimation();
+        }
+      },
+      { threshold: 0.08 }
+    );
+    if (footerRef.current) observer.observe(footerRef.current);
+    return () => observer.disconnect();
+  }, [animated, runAnimation]);
 
   return (
     <footer ref={footerRef} className="w-full bg-[#0D0D0D]">
       <div className="border-t border-white/10" />
 
-      {/* ── CTA block with Vanta clouds ── */}
-      <div
-        ref={vantaRef}
-        className="relative w-full overflow-hidden bg-[#080008]"
-      >
-        {/* Bottom fade so clouds blend into the dark footer grid */}
+      {/* ── CTA block ── */}
+      <div className="relative w-full overflow-hidden bg-[#080008]">
+        {/* Bottom fade into the dark footer grid */}
         <div
           className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-10"
           style={{
@@ -149,7 +103,7 @@ export default function Footer() {
           </div>
 
           <h2
-            className="cta-line opacity-0 font-geist font-extrabold text-white leading-none tracking-tight mb-2"
+            className="cta-line opacity-0 font-geist font-medium text-white leading-none tracking-tighter mb-2"
             style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
           >
             From the quiet,
@@ -177,7 +131,7 @@ export default function Footer() {
               href="#"
               className="flex items-center gap-2 border border-white/20 text-white/70 text-sm font-medium px-6 py-3.5 rounded-full hover:bg-white/10 hover:text-white transition-colors"
             >
-              Let's Talk
+              Let&apos;s Talk
             </a>
           </div>
         </div>
@@ -308,6 +262,13 @@ export default function Footer() {
             Terms
           </a>
         </div>
+      </div>
+
+      {/* ── Closing wordmark — bookend to the Hero watermark ── */}
+      <div className="px-[5vw] pb-[2vh] overflow-hidden pointer-events-none select-none">
+        <p className="font-geist text-[18vw] font-medium tracking-tighter leading-none whitespace-nowrap text-[#F5F5F5] ml-[-0.02em]">
+          emberloft
+        </p>
       </div>
     </footer>
   );
