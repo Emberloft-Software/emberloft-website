@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import PixelPlasmaBackground from "./PixelPlasmaBackground";
 import ArrowButton from "../ArrowButton";
 
 const services = [
@@ -144,26 +143,8 @@ export default function ServicesSectionPixelBgV3() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-screen overflow-hidden py-[8vh] px-[5vw]"
+      className="relative w-screen overflow-hidden py-[12vh] px-[5vw] bg-[#0A0A0A]"
     >
-      {/* Pixelated plasma — glow that drifts in an orbit around the bottom-right corner */}
-      <PixelPlasmaBackground
-        background="#0A0A0A"
-        plasmaColor="#0A0A0A"
-        plasmaShadow="#290052"
-        pixelDensity={120}
-        pixelRoundness={0.3}
-        animationSpeed={2}
-        plasmaIntensity={1.8}
-        plasmaContrast={1.6}
-        mode="drift"
-        originX={0.9}
-        originY={0.9}
-        glowRadius={0.45}
-        driftRadius={0.2}
-      />
-
-      {/* Content layer (above plasma canvas) */}
       <div className="relative z-10">
 
       {/* Label */}
@@ -177,10 +158,14 @@ export default function ServicesSectionPixelBgV3() {
       {/* Heading */}
       <h2
         ref={headingRef}
-        className="font-geist text-[clamp(2rem,5vw,4rem)] font-extrabold text-white leading-tight mb-[6vh] opacity-0"
+        className="font-geist text-[clamp(2rem,5vw,4rem)] font-medium text-white leading-tight mb-[6vh] opacity-0"
+        style={{ letterSpacing: "-0.05em" }}
       >
         Four disciplines.{" "}
-        <span className="font-instrument-serif font-normal italic text-[#EEBA0B]">
+        <span
+          className="font-instrument-serif font-normal italic text-[#EEBA0B]"
+          style={{ letterSpacing: "0" }}
+        >
           One
         </span>{" "}
         standard.
@@ -214,6 +199,7 @@ export default function ServicesSectionPixelBgV3() {
                 className="font-geist font-extrabold transition-all duration-300 pl-4"
                 style={{
                   fontSize: "clamp(1.6rem, 3.2vw, 2.8rem)",
+                  letterSpacing: "-0.05em",
                   color: activeIndex === i ? "white" : "rgba(255,255,255,0.25)",
                 }}
               >
