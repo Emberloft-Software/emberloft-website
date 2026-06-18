@@ -15,7 +15,7 @@ const team = [
     linkedin: "#",
   },
   {
-    name: "Sanuth Mandepaa",
+    name: "Sanuth Mandepa",
     role: "Co-Founder & Creative Director",
     description:
       "Owns the visual language. UI/UX design, brand direction, WordPress builds, and making sure everything looks as good as it performs.",
