@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const team = [
@@ -41,21 +42,6 @@ export default function TeamSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [animated, setAnimated] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated) {
-          setAnimated(true);
-          observer.disconnect();
-          runAnimation();
-        }
-      },
-      { threshold: 0.1 },
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, [animated]);
-
   const runAnimation = async () => {
     const { animate, stagger } = await import("animejs");
 
@@ -78,6 +64,21 @@ export default function TeamSection() {
       ease: "outExpo",
     });
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) {
+          setAnimated(true);
+          observer.disconnect();
+          runAnimation();
+        }
+      },
+      { threshold: 0.1 },
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [animated]);
 
   return (
     <section
@@ -143,10 +144,11 @@ export default function TeamSection() {
                         : "#FFE8E9", // soft red tint for Ranan
                 }}
               >
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  fill
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   onError={(e) => {
                     // Fallback placeholder if image missing
                     (e.target as HTMLImageElement).style.display = "none";
