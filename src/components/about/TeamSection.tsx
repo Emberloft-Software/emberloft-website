@@ -9,7 +9,7 @@ const team = [
     description:
       "Architects and builds the technical foundation. Full-stack development, system design, and making sure everything actually works.",
     tags: ["Full-Stack Dev", "Mobile", "AI Integration"],
-    image: "/team-chanka.png",
+    image: "/team-chanka.webp",
     accent: "#FB4B54",
     linkedin: "#",
   },
@@ -19,7 +19,7 @@ const team = [
     description:
       "Owns the visual language. UI/UX design, brand direction, WordPress builds, and making sure everything looks as good as it performs.",
     tags: ["UI / UX", "WordPress", "Brand"],
-    image: "/team-sanuth.png",
+    image: "/team-sanuth.webp",
     accent: "#290052",
     linkedin: "#",
   },
@@ -29,7 +29,7 @@ const team = [
     description:
       "Brings the psychology. Ensures every product is built around how people actually think, feel, and behave — not just how they're assumed to.",
     tags: ["User Psychology", "Behavioural UX", "Research"],
-    image: "/team-ranan.png",
+    image: "/team-ranan.webp",
     accent: "#FB4B54",
     linkedin: "https://www.linkedin.com/in/ranan-hewawasam-3b3402243/",
   },
@@ -50,7 +50,7 @@ export default function TeamSection() {
           runAnimation();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -85,7 +85,6 @@ export default function TeamSection() {
       className="w-full bg-[#F2F2F0] py-[10vh] px-[5vw]"
     >
       <div className="max-w-6xl mx-auto">
-
         {/* Header row */}
         <div
           ref={headingRef}
@@ -115,7 +114,8 @@ export default function TeamSection() {
             className="font-geist text-black/40 max-w-sm leading-relaxed lg:text-right"
             style={{ fontSize: "clamp(0.85rem, 1.1vw, 1rem)" }}
           >
-            Three people who care deeply about what gets shipped. No filler. No bench.
+            Three people who care deeply about what gets shipped. No filler. No
+            bench.
           </p>
         </div>
 
@@ -124,7 +124,9 @@ export default function TeamSection() {
           {team.map((member, i) => (
             <div
               key={i}
-              ref={(el) => { cardRefs.current[i] = el; }}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
               className="group relative flex flex-col rounded-2xl overflow-hidden"
               style={{ opacity: 0 }}
             >
@@ -135,10 +137,10 @@ export default function TeamSection() {
                   height: "clamp(480px, 58vh, 620px)",
                   backgroundColor:
                     i === 0
-                      ? "#FFE8E9"   // soft red tint for Chanka
+                      ? "#FFE8E9" // soft red tint for Chanka
                       : i === 1
-                      ? "#EDE8F5"   // soft purple tint for Sanuth
-                      : "#FFE8E9",  // soft red tint for Ranan
+                        ? "#EDE8F5" // soft purple tint for Sanuth
+                        : "#FFE8E9", // soft red tint for Ranan
                 }}
               >
                 <img
@@ -160,12 +162,13 @@ export default function TeamSection() {
                     className="font-geist font-black text-7xl select-none"
                     style={{
                       color:
-                        i === 1
-                          ? "rgba(41,0,82,0.12)"
-                          : "rgba(251,75,84,0.12)",
+                        i === 1 ? "rgba(41,0,82,0.12)" : "rgba(251,75,84,0.12)",
                     }}
                   >
-                    {member.name.split(" ").map((n) => n[0]).join("")}
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </span>
                 </div>
 
@@ -196,7 +199,10 @@ export default function TeamSection() {
                       aria-label={`${member.name} LinkedIn`}
                     >
                       <svg
-                        width="13" height="13" viewBox="0 0 24 24" fill="none"
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
                         className="transition-colors duration-200 group-hover/link:fill-white"
                         style={{ fill: "rgba(0,0,0,0.4)" }}
                       >
@@ -232,9 +238,7 @@ export default function TeamSection() {
                             ? "rgba(41,0,82,0.15)"
                             : "rgba(251,75,84,0.15)",
                         color:
-                          i === 1
-                            ? "rgba(41,0,82,0.6)"
-                            : "rgba(251,75,84,0.7)",
+                          i === 1 ? "rgba(41,0,82,0.6)" : "rgba(251,75,84,0.7)",
                         backgroundColor:
                           i === 1
                             ? "rgba(41,0,82,0.04)"
@@ -258,7 +262,6 @@ export default function TeamSection() {
           </p>
           <div className="h-px w-12 bg-black/10" />
         </div>
-
       </div>
     </section>
   );
