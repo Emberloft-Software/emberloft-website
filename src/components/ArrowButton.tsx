@@ -31,7 +31,7 @@ export default function ArrowButton({
     <Link
       href={href}
       onClick={onClick}
-      className={`group relative h-12 items-center overflow-hidden rounded-full font-semibold text-base pl-6 pr-12 hover:pl-12 hover:pr-6 transition-all duration-800 ease-in-out ${variants[variant]} ${className}`}
+      className={`group relative h-12 items-center overflow-hidden rounded-full font-semibold text-base pl-6 pr-16 hover:pl-16 hover:pr-6 transition-all duration-800 ease-in-out ${variants[variant]} ${className}`}
     >
       <span className="relative z-0">
         {children}
