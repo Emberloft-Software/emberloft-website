@@ -131,7 +131,7 @@ export default function DontSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-screen bg-[#ffffff] py-[12vh] px-[5vw] flex items-center justify-center overflow-hidden"
+      className="w-screen bg-[#F5F5F5] py-[12vh] px-[5vw] flex items-center justify-center overflow-hidden"
       style={{ minHeight: "80vh" }}
     >
       <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-[4vw] w-full max-w-6xl mx-auto">

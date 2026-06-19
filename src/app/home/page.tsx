@@ -7,6 +7,8 @@ import QuoteSection from "@/components/home/QuoteSection";
 import FAQSection from "@/components/home/FaqSection";
 import CapabilitiesSection from "@/components/home/CapabilitiesSection";
 import StatsSection from "@/components/home/StatsSection";
+import ProjectsSection from "@/components/home/ProjectsSection";
+import BlogSection from "@/components/home/BlogSection";
 
 export default function HomePage() {
   return (
@@ -16,11 +18,13 @@ export default function HomePage() {
         <AboutSection />
         <ServicesSectionPixelBgV3 />
         <WorkSection />
+        <ProjectsSection />
         <QuoteSection />
         {/* <StatsSection /> */}
         {/* <CapabilitiesSection /> */}
+        <BlogSection />
         <FAQSection />
-        
+
       {/* Add more sections here later e.g. <AboutSnippet /> */}
     </main>
   );
