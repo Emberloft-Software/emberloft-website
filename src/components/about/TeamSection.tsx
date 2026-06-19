@@ -20,7 +20,7 @@ const team = [
     description:
       "Owns the visual language. UI/UX design, brand direction, WordPress builds, and making sure everything looks as good as it performs.",
     tags: ["UI / UX", "WordPress", "Brand"],
-    image: "/team-chanka1.webp",
+    image: "/team-sanuth.webp",
     accent: "#290052",
     linkedin: "#",
   },
