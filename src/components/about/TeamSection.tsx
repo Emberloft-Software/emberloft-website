@@ -10,7 +10,7 @@ const team = [
     description:
       "Architects and builds the technical foundation. Full-stack development, system design, and making sure everything actually works.",
     tags: ["Full-Stack Dev", "Mobile", "AI Integration"],
-    image: "/team-chanka.webp",
+    image: "/team-chanka2.webp",
     accent: "#FB4B54",
     linkedin: "#",
   },
@@ -20,7 +20,7 @@ const team = [
     description:
       "Owns the visual language. UI/UX design, brand direction, WordPress builds, and making sure everything looks as good as it performs.",
     tags: ["UI / UX", "WordPress", "Brand"],
-    image: "/team-sanuth.webp",
+    image: "/team-sanuth2.webp",
     accent: "#290052",
     linkedin: "#",
   },
@@ -30,7 +30,7 @@ const team = [
     description:
       "Brings the psychology. Ensures every product is built around how people actually think, feel, and behave — not just how they're assumed to.",
     tags: ["User Psychology", "Behavioural UX", "Research"],
-    image: "/team-ranan.webp",
+    image: "/team-ranan2.webp",
     accent: "#FB4B54",
     linkedin: "https://www.linkedin.com/in/ranan-hewawasam-3b3402243/",
   },
