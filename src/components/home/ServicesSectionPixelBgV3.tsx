@@ -196,7 +196,7 @@ export default function ServicesSectionPixelBgV3() {
               />
 
               <h3
-                className="font-geist font-extrabold transition-all duration-300 pl-4"
+                className="font-geist font-medium transition-all duration-300 pl-4"
                 style={{
                   fontSize: "clamp(1.6rem, 3.2vw, 2.8rem)",
                   letterSpacing: "-0.05em",

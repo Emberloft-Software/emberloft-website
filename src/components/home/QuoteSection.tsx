@@ -79,7 +79,7 @@ export default function QuoteSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-screen bg-[#ffffff] py-[12vh] px-[5vw] flex flex-col items-center justify-center"
+      className="w-screen bg-[#F5F5F5] py-[12vh] px-[5vw] flex flex-col items-center justify-center"
       style={{ minHeight: "40vh" }}
     >
       <div className="max-w-4xl w-full mx-auto text-center">
