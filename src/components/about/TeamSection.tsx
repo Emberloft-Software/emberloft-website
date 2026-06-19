@@ -30,7 +30,7 @@ const team = [
     description:
       "Brings the psychology. Ensures every product is built around how people actually think, feel, and behave — not just how they're assumed to.",
     tags: ["User Psychology", "Behavioural UX", "Research"],
-    image: "/team-ranan1.webp",
+    image: "/team-ranan.webp",
     accent: "#FB4B54",
     linkedin: "https://www.linkedin.com/in/ranan-hewawasam-3b3402243/",
   },
