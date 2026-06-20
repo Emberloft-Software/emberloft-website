@@ -12,14 +12,14 @@ export type Project = {
 export const projects: Project[] = [
   {
     number: "01",
-    title: "Nimbus Health",
-    category: "Healthcare · Web App",
-    year: "2025",
-    tags: ["Next.js", "TypeScript", "Design System"],
+    title: "Gandhara Art & Design Studio",
+    category: "UI/UX · Figma Design",
+    year: "2023",
+    tags: ["Figma", "UI/UX Design", "Web Design"],
     description:
-      "A patient portal rebuilt from the ground up — faster intake, clearer records, zero clutter.",
+      "A complete UI/UX redesign for Gandhara, an exclusive art and design studio in Colombo. Curated collections, interior solutions, and a custom e-commerce experience, designed end to end in Figma.",
     color: "#FB4B54",
-    image: "/about-1.png",
+    image: "/gandhara-case-study.webp",
   },
   {
     number: "02",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     description:
       "A storefront tuned for conversion — sub-second loads and checkout friction cut in half.",
     color: "#EEBA0B",
-    image: "/about-2.jpg",
+    image: "/mockup-25.png",
   },
   {
     number: "03",

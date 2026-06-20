@@ -62,12 +62,12 @@ export default function ProjectsSection() {
   return (
     <section ref={sectionRef} className="relative w-full bg-[#0D0D0D]">
       {/* Header — scrolls normally, sits above the pinned stack */}
-      <div className="px-[5vw] pt-[10vh] pb-[6vh] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      <div className="px-[5vw] pt-[10vh] pb-[10vh] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-[2vh]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FB4B54]" />
             <span className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.18em] uppercase">
-              Selected Work
+              Sample Work
             </span>
           </div>
           <h2
@@ -75,14 +75,14 @@ export default function ProjectsSection() {
             className="font-geist font-medium text-white leading-tight opacity-0"
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "-0.04em" }}
           >
-            Work with{" "}
+            Work we made{" "}
             <span className="font-instrument-serif font-normal italic text-[#FB4B54]">
-              depth.
+              on our own.
             </span>
           </h2>
         </div>
         <ArrowButton href="#" variant="outline">
-          View All Work
+          See More Samples
         </ArrowButton>
       </div>
 
@@ -94,7 +94,7 @@ export default function ProjectsSection() {
           ref={(el) => {
             panelRefs.current[i] = el;
           }}
-          className="sticky top-0 h-screen flex items-center justify-center px-[5vw]"
+          className="sticky top-0 h-screen flex items-start justify-center px-[5vw] pt-[15vh]"
           style={{ zIndex: i + 1 }}
         >
           <div
@@ -102,7 +102,7 @@ export default function ProjectsSection() {
               cardRefs.current[i] = el;
             }}
             className="group relative w-full rounded-2xl overflow-hidden"
-            style={{ height: "70vh", boxShadow: "0 30px 60px -20px rgba(0,0,0,0.6)" }}
+            style={{ height: "80vh", boxShadow: "0 30px 60px -20px rgba(0,0,0,0.6)" }}
           >
             <Image
               src={project.image}
@@ -120,7 +120,7 @@ export default function ProjectsSection() {
               {project.number}
             </span>
 
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div className="absolute bottom-0 left-0 right-0 px-6 md:px-10 pt-6 md:pt-10 pb-[5vh] flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <div>
                 <span
                   className="font-geist text-xs font-semibold tracking-[0.18em] uppercase"
@@ -152,6 +152,11 @@ export default function ProjectsSection() {
           </div>
         </div>
       ))}
+
+      {/* Closing spacer — mirrors the header's pt-[10vh] so the section
+          has an intentional bottom margin instead of relying on the
+          last card's incidental gap before the next section. */}
+      <div className="h-[10vh] bg-[#0D0D0D]" />
     </section>
   );
 }
