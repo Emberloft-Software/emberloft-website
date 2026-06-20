@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowButton from "../ArrowButton";
@@ -13,6 +14,7 @@ export default function BlogSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const [featured, ...rest] = blogPosts;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -63,7 +65,7 @@ export default function BlogSection() {
       ref={sectionRef}
       className="w-screen bg-[#F5F5F5] py-[12vh] px-[5vw]"
     >
-      {/* Top row — label + heading + CTA */}
+      {/* Top row - label + heading + CTA */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-[7vh]">
         <div>
           <div className="flex items-center gap-2 mb-[2vh]">
@@ -82,51 +84,75 @@ export default function BlogSection() {
             </span>
           </h2>
         </div>
-        <ArrowButton href="#" variant="solid">
+        <ArrowButton href="/blog" variant="solid">
           View All Posts
         </ArrowButton>
       </div>
 
-      {/* Card grid */}
-      <div
-        ref={gridRef}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
-      >
-        {blogPosts.map((post) => (
-          <a
-            key={post.title}
-            href="#"
+      {/* Large featured post + 2 small posts, all in one row */}
+      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-start">
+        {featured && (
+          <Link
+            href={`/blog/${featured.slug}`}
+            className="blog-card opacity-0 group bg-white rounded-2xl overflow-hidden flex flex-col sm:col-span-2"
+          >
+            <div className="relative w-full aspect-video overflow-hidden">
+              <Image
+                src={featured.image}
+                alt={featured.title}
+                fill
+                sizes="50vw"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="p-6 md:p-8 flex flex-col flex-1">
+              <span className="font-geist text-black/40 text-xs font-semibold tracking-widest uppercase">
+                {featured.category}
+              </span>
+              <h3 className="font-geist font-medium text-black text-xl md:text-2xl mt-2 mb-3 leading-tight transition-colors duration-200 group-hover:text-[#FB4B54]">
+                {featured.title}
+              </h3>
+              <p className="font-geist text-black/50 text-sm leading-relaxed mb-4 flex-1">
+                {featured.excerpt}
+              </p>
+              <div className="flex items-center gap-2 font-geist text-black/40 text-xs tracking-wide uppercase">
+                <span>{featured.date}</span>
+                <span className="w-1 h-1 rounded-full bg-black/20" />
+                <span>{featured.readTime}</span>
+              </div>
+            </div>
+          </Link>
+        )}
+
+        {rest.map((post) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
             className="blog-card opacity-0 group bg-white rounded-2xl overflow-hidden flex flex-col"
           >
-            <div className="relative w-full aspect-4/3 overflow-hidden">
+            <div className="relative w-full aspect-video overflow-hidden">
               <Image
                 src={post.image}
                 alt={post.title}
                 fill
-                sizes="33vw"
+                sizes="25vw"
                 className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
-              <span
-                className="absolute top-4 left-4 font-geist text-xs font-semibold tracking-widest uppercase text-black rounded-full px-3 py-1"
-                style={{ backgroundColor: post.color }}
-              >
+            </div>
+            <div className="p-5 md:p-6 flex flex-col min-w-0">
+              <span className="font-geist text-black/40 text-xs font-semibold tracking-widest uppercase">
                 {post.category}
               </span>
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="font-geist font-medium text-black text-lg mb-2 leading-tight transition-colors duration-200 group-hover:text-[#FB4B54]">
+              <h3 className="font-geist font-medium text-black text-base md:text-lg mt-1 mb-2 leading-tight line-clamp-2 min-h-10 md:min-h-11 transition-colors duration-200 group-hover:text-[#FB4B54]">
                 {post.title}
               </h3>
-              <p className="font-geist text-black/50 text-sm leading-relaxed mb-4 flex-1">
-                {post.excerpt}
-              </p>
               <div className="flex items-center gap-2 font-geist text-black/40 text-xs tracking-wide uppercase">
                 <span>{post.date}</span>
                 <span className="w-1 h-1 rounded-full bg-black/20" />
                 <span>{post.readTime}</span>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

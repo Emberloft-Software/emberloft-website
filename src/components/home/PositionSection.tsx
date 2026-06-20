@@ -31,7 +31,7 @@ function buildWords(): Word[] {
     segments.forEach((seg) => {
       // Keep trailing space as part of the word token
       const raw = seg.text;
-      // split preserving spaces — each "word" includes its trailing space
+      // split preserving spaces - each "word" includes its trailing space
       const tokens = raw.match(/\S+\s*/g) || [];
       tokens.forEach((token) => {
         words.push({ text: token, style: seg.style, lineIndex });
@@ -51,7 +51,7 @@ export default function PositionSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Label — simple fade-in on enter
+      // Label - simple fade-in on enter
       if (labelRef.current) {
         gsap.fromTo(
           labelRef.current,
@@ -70,7 +70,7 @@ export default function PositionSection() {
         );
       }
 
-      // Lines — scroll-scrubbed reveal: each line slides in from the
+      // Lines - scroll-scrubbed reveal: each line slides in from the
       // left while its color fades from 50% transparent to full, in
       // sequence as the section scrolls through view.
       const lineEls = lineRefs.current.filter(Boolean) as HTMLDivElement[];
@@ -94,7 +94,7 @@ export default function PositionSection() {
           0,
         );
 
-      // Subtitle — fade-in on enter
+      // Subtitle - fade-in on enter
       if (subRef.current) {
         gsap.fromTo(
           subRef.current,

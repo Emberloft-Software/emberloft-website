@@ -135,7 +135,7 @@ export default function PageHero({
           className="font-geist font-semibold text-xs tracking-[0.2em] uppercase mb-[2.5vh] block"
           style={{ opacity: 0, color: accentColor }}
         >
-          — {label}
+          · {label}
         </span>
 
         {/* Title */}

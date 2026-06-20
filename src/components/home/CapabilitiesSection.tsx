@@ -137,7 +137,7 @@ export default function CapabilitiesSection() {
                 </span>
               </div>
 
-              {/* Connecting line segment — filled after dot appears */}
+              {/* Connecting line segment - filled after dot appears */}
               {i < steps.length - 1 && (
                 <div
                   className="w-px flex-1 mt-2"

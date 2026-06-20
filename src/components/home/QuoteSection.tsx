@@ -39,7 +39,7 @@ export default function QuoteSection() {
 
     const wordEls = wordRefs.current.filter(Boolean) as HTMLSpanElement[];
 
-    // Words reveal one by one — fade + tiny upward drift
+    // Words reveal one by one - fade + tiny upward drift
     animate(wordEls, {
       opacity: [0, 1],
       translateY: [10, 0],
@@ -135,7 +135,7 @@ export default function QuoteSection() {
           className="font-geist text-black/40 tracking-[0.12em] uppercase opacity-0"
           style={{ fontSize: "clamp(0.6rem, 1vw, 0.75rem)" }}
         >
-          — Antoine de Saint-Exupéry · Wind, Sand and Stars (1939)
+          - Antoine de Saint-Exupéry · Wind, Sand and Stars (1939)
         </p>
       </div>
     </section>

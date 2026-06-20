@@ -6,7 +6,7 @@ const steps = [
   {
     number: "01",
     title: "Application",
-    body: "You fill out the project form. We read every word — no automated filters, no sales team. Within 48 hours you hear back from the people who will actually build it.",
+    body: "You fill out the project form. We read every word: no automated filters, no sales team. Within 48 hours you hear back from the people who will actually build it.",
     detail: "Takes about 5 minutes.",
     icon: "✦",
     accent: "#FB4B54",
@@ -14,7 +14,7 @@ const steps = [
   {
     number: "02",
     title: "Discovery Call",
-    body: "A focused 45-minute call. We ask hard questions about your users, your goals, and your constraints. You leave with clarity — and so do we.",
+    body: "A focused 45-minute call. We ask hard questions about your users, your goals, and your constraints. You leave with clarity, and so do we.",
     detail: "No pitch. Just conversation.",
     icon: "◎",
     accent: "#EEBA0B",
@@ -22,7 +22,7 @@ const steps = [
   {
     number: "03",
     title: "Proposal",
-    body: "A fixed-price proposal — scope, timeline, deliverables. No hourly rates, no scope creep. You know exactly what you're getting before you sign anything.",
+    body: "A fixed-price proposal: scope, timeline, deliverables. No hourly rates, no scope creep. You know exactly what you're getting before you sign anything.",
     detail: "Delivered within 3 days.",
     icon: "▲",
     accent: "#290052",

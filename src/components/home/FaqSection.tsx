@@ -6,12 +6,12 @@ const faqs = [
   {
     question: "How do you ensure quality on every project?",
     answer:
-      "Every project goes through a rigorous internal review process. We keep our team small on purpose — senior eyes on every deliverable, every time. Nothing ships without being stress-tested against the brief.",
+      "Every project goes through a rigorous internal review process. We keep our team small on purpose: senior eyes on every deliverable, every time. Nothing ships without being stress-tested against the brief.",
   },
   {
     question: "How many projects do you take on at once?",
     answer:
-      "We intentionally limit ourselves to a small number of active engagements. This isn't a constraint — it's the model. Fewer projects means more focus, better work, and a team that's actually present.",
+      "We intentionally limit ourselves to a small number of active engagements. This isn't a constraint, it's the model. Fewer projects means more focus, better work, and a team that's actually present.",
   },
   {
     question: "Do you work with early-stage startups?",
@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "What does your process look like?",
     answer:
-      "We start with a discovery phase to understand your goals, users, and constraints. From there we move into design, then build — with tight feedback loops throughout. No big reveal at the end.",
+      "We start with a discovery phase to understand your goals, users, and constraints. From there we move into design, then build, with tight feedback loops throughout. No big reveal at the end.",
   },
   {
     question: "Do you offer ongoing retainers?",
@@ -205,7 +205,7 @@ export default function FAQSection() {
                 </span>
               </button>
 
-              {/* Answer — animated height */}
+              {/* Answer - animated height */}
               <div
                 ref={(el) => { answerRefs.current[i] = el; }}
                 style={{

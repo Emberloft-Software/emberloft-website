@@ -65,7 +65,7 @@ export default function StatsSection() {
       duration: 700,
     });
 
-    // Dividers draw left to right — staggered
+    // Dividers draw left to right - staggered
     const dividers = dividerRefs.current.filter(Boolean) as HTMLDivElement[];
     tl.add(dividers, {
       scaleX: [0, 1],
@@ -83,7 +83,7 @@ export default function StatsSection() {
       delay: stagger(100),
     }, "-=500");
 
-    // Numbers count up — each one individually
+    // Numbers count up - each one individually
     stats.forEach((stat, i) => {
       const el = numRefs.current[i];
       if (!el) return;
@@ -106,7 +106,7 @@ export default function StatsSection() {
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* Top row — label + heading */}
+        {/* Top row - label + heading */}
         <div
           ref={headingRef}
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-[7vh]"
@@ -144,7 +144,7 @@ export default function StatsSection() {
           {stats.map((stat, i) => (
             <div key={i} className="relative">
 
-              {/* Top divider — animates scaleX from 0 */}
+              {/* Top divider - animates scaleX from 0 */}
               <div
                 ref={(el) => { dividerRefs.current[i] = el; }}
                 className="h-px w-full mb-[3vh]"

@@ -100,7 +100,7 @@ export default function DontSection() {
           </span>
         </div>
 
-        {/* Vertical carousel — below heading on mobile, beside it on desktop */}
+        {/* Vertical carousel - below heading on mobile, beside it on desktop */}
         <div className="flex flex-col gap-1 w-full">
           {items.map((item, i) => (
             <span

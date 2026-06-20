@@ -9,7 +9,7 @@ export default function ContactPage() {
         label="Contact"
         title="Let's build"
         titleItalic="something."
-        description="We take on a small number of projects at a time. If you've got something worth building — tell us about it."
+        description="We take on a small number of projects at a time. If you've got something worth building, tell us about it."
       />
       <ContactForm />
       <ContactInfoSection />

@@ -175,7 +175,7 @@ const plans: Record<Category, Plan[]> = {
       price: "Rs 130,000",
       unit: "one-time",
       tag: "Most popular",
-      description: "Real functionality — booking, dashboards, user features.",
+      description: "Real functionality: booking, dashboards, user features.",
       highlight: true,
       cta: "Apply now",
       features: [
@@ -516,7 +516,7 @@ export default function PricingSection() {
                 <ul className="flex flex-col gap-3 mb-8 flex-1">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-3">
-                      <span className="mt-[3px] shrink-0">
+                      <span className="mt-0.75 shrink-0">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                           <circle
                             cx="7" cy="7" r="7"

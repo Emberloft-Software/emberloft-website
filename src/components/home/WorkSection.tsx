@@ -77,7 +77,7 @@ export default function DontSection() {
       const { animate, stagger } = await import("animejs");
 
       // Each slot animates: current content falls out, new content drops in
-      // We animate all slots simultaneously — each moves "up" one position
+      // We animate all slots simultaneously - each moves "up" one position
       const slots = slotRefs.current.filter(Boolean) as HTMLDivElement[];
 
       // Step 1: all slots fall out downward (smooth)
@@ -190,7 +190,7 @@ export default function DontSection() {
           </span>
         </div>
 
-        {/* Rotating slot stack — full width on mobile, flex-1 on desktop */}
+        {/* Rotating slot stack - full width on mobile, flex-1 on desktop */}
         <div
           className="relative flex flex-col w-full md:flex-1 overflow-hidden"
           style={{

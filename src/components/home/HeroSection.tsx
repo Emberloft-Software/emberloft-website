@@ -80,7 +80,7 @@ export default function HeroSection() {
 
         {/* ── Full height layout column ── */}
         <div className="relative z-10 flex flex-col h-full px-[5vw]">
-          {/* Centered content block — sits at eye level, clears the navbar via pt floor */}
+          {/* Centered content block - sits at eye level, clears the navbar via pt floor */}
           <div className="flex-1 flex flex-col justify-center pt-28 md:pt-32">
             {/* Headline */}
             <div className="mb-8">
@@ -107,7 +107,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Watermark — anchored at the bottom of the hero, flush with content edges */}
+          {/* Watermark - anchored at the bottom of the hero, flush with content edges */}
           <div className="mb-6 md:mb-10 pointer-events-none select-none overflow-show">
             <p
               className="font-geist text-[18vw] font-medium tracking-tighter leading-none whitespace-nowrap text-[#F5F5F5] ml-[-0.02em]"
@@ -117,7 +117,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Drumroll service list — right side (hidden on mobile), aligned with navbar's right edge */}
+        {/* Drumroll service list - right side (hidden on mobile), aligned with navbar's right edge */}
         <div className="hidden md:block absolute right-[5vw] top-1/2 -translate-y-1/2 z-20 overflow-hidden h-36">
           <div ref={drumRef} className="flex flex-col">
             {services.map((s, i) => (
@@ -133,7 +133,7 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Marquee strip — overlaps the hero's bottom edge, dissolving the watermark into it */}
+      {/* Marquee strip - overlaps the hero's bottom edge, dissolving the watermark into it */}
       <div className="relative z-30 mt-[-8vw] w-full overflow-hidden">
         {/* Hero → marquee blend */}
         <div className="absolute inset-x-0 top-0 h-[8vw] bg-linear-to-b from-transparent to-[#0D0D0D] pointer-events-none" />

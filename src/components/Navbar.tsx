@@ -110,7 +110,7 @@ export default function Navbar() {
           emberloft
         </Link>
 
-        {/* Nav links pill — desktop only */}
+        {/* Nav links pill - desktop only */}
         <div className="hidden md:flex h-12 items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-1">
           {navLinks.map((link) => (
             <Link
@@ -127,12 +127,12 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA button — desktop only */}
+        {/* CTA button - desktop only */}
         <ArrowButton href="/contact" className="hidden md:inline-flex">
           Explore More
         </ArrowButton>
 
-        {/* Hamburger button — mobile only */}
+        {/* Hamburger button - mobile only */}
         <button
           onClick={() => setMenuOpen((v) => !v)}
           className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"

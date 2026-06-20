@@ -61,7 +61,7 @@ export default function ProjectsSection() {
 
   return (
     <section ref={sectionRef} className="relative w-full bg-[#0D0D0D]">
-      {/* Header — scrolls normally, sits above the pinned stack */}
+      {/* Header - scrolls normally, sits above the pinned stack */}
       <div className="px-[5vw] pt-[10vh] pb-[10vh] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-[2vh]">
@@ -86,7 +86,7 @@ export default function ProjectsSection() {
         </ArrowButton>
       </div>
 
-      {/* Pinned stack — each panel sticks to the top of the viewport; the
+      {/* Pinned stack - each panel sticks to the top of the viewport; the
           card underneath shrinks and dims as the next one slides over it. */}
       {projects.map((project, i) => (
         <div
@@ -153,7 +153,7 @@ export default function ProjectsSection() {
         </div>
       ))}
 
-      {/* Closing spacer — mirrors the header's pt-[10vh] so the section
+      {/* Closing spacer - mirrors the header's pt-[10vh] so the section
           has an intentional bottom margin instead of relying on the
           last card's incidental gap before the next section. */}
       <div className="h-[10vh] bg-[#0D0D0D]" />

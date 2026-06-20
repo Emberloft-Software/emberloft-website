@@ -61,7 +61,7 @@ export default function AboutSection() {
       ref={sectionRef}
       className="w-screen bg-[#F2F2F0] py-[12vh] px-[5vw]"
     >
-      {/* Top row — label + heading */}
+      {/* Top row - label + heading */}
       <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16 mb-12">
         {/* Label */}
         <div className="flex items-center gap-2 md:pt-2 shrink-0">
@@ -76,7 +76,7 @@ export default function AboutSection() {
           className="font-geist text-[clamp(1.6rem,3.2vw,2.6rem)] font-medium text-black text-left opacity-0"
           style={{ lineHeight: 1.15, letterSpacing: "-0.05em" }}
         >
-          A studio of a focused few. We keep our circle small on purpose —
+          A studio of a focused few. We keep our circle small on purpose,
           fewer hands, more care. Names stay quiet. The work stays loud.
         </h2>
       </div>
@@ -93,7 +93,7 @@ export default function AboutSection() {
               Craft over volume.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              A studio of a focused few. We keep our circle small on purpose —
+              A studio of a focused few. We keep our circle small on purpose,
               fewer hands, more care. Names stay quiet. The work stays loud.
             </p>
           </div>
@@ -168,7 +168,7 @@ export default function AboutSection() {
               One team, start to finish.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              Web, mobile, UI/UX and AI — the same hands carry it from first
+              Web, mobile, UI/UX and AI: the same hands carry it from first
               sketch to shipped product.
             </p>
           </div>
@@ -179,7 +179,7 @@ export default function AboutSection() {
               Built to last.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              Clean code and clear documentation — systems we&apos;re proud
+              Clean code and clear documentation, systems we&apos;re proud
               to hand over.
             </p>
           </div>

@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 const faqs = [
   {
     q: "How quickly do you respond?",
-    a: "Within 48 hours. Every application is read by the people who will work on it — not a sales team.",
+    a: "Within 48 hours. Every application is read by the people who will work on it, not a sales team.",
   },
   {
     q: "Do you take on small projects?",
-    a: "We take on projects that fit. Budget isn't the only filter — we care more about the problem being solved and whether we're the right people to solve it.",
+    a: "We take on projects that fit. Budget isn't the only filter, we care more about the problem being solved and whether we're the right people to solve it.",
   },
   {
     q: "Can we start a conversation before committing?",
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Are your prices negotiable?",
-    a: "Our packages are fixed-price for a reason — it protects you as much as us. Custom scopes get custom quotes.",
+    a: "Our packages are fixed-price for a reason: it protects you as much as us. Custom scopes get custom quotes.",
   },
 ];
 

@@ -238,13 +238,19 @@ export default function Footer() {
             Studio
           </p>
           <ul className="flex flex-col gap-3.5">
-            {["About", "Work", "Process", "FAQ"].map((s) => (
-              <li key={s}>
+            {[
+              { label: "About", href: "/about" },
+              { label: "Work", href: "#" },
+              { label: "Process", href: "#" },
+              { label: "FAQ", href: "#" },
+              { label: "Blog", href: "/blog" },
+            ].map((s) => (
+              <li key={s.label}>
                 <a
-                  href="#"
+                  href={s.href}
                   className="font-geist text-white/50 text-[clamp(0.8rem,1.1vw,0.9rem)] hover:text-white transition-colors duration-200"
                 >
-                  {s}
+                  {s.label}
                 </a>
               </li>
             ))}
@@ -305,7 +311,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Closing wordmark — bookend to the Hero watermark ── */}
+      {/* Closing wordmark - bookend to the Hero watermark */}
       <div className="px-[5vw] pb-[2vh] overflow-hidden pointer-events-none select-none flex items-baseline justify-between">
         <p className="font-geist text-[17vw] font-medium tracking-tighter leading-none text-[#F5F5F5] ml-[-0.02em]">
           emberloft

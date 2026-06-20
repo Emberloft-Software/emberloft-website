@@ -24,7 +24,7 @@ const services = [
     number: "03",
     title: "UI / UX",
     description:
-      "Interfaces designed with intention — every interaction considered, every pixel deliberate.",
+      "Interfaces designed with intention: every interaction considered, every pixel deliberate.",
     tags: ["Figma", "Prototyping", "Design Systems", "User Research"],
     image: "/services-1.mp4",
   },
@@ -174,7 +174,7 @@ export default function ServicesSectionPixelBgV3() {
       {/* Main grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[4vw] items-start">
 
-        {/* Left — service rows */}
+        {/* Left - service rows */}
         <div className="flex flex-col">
           {services.map((service, i) => (
             <div
@@ -241,7 +241,7 @@ export default function ServicesSectionPixelBgV3() {
           ))}
         </div>
 
-        {/* Right — detail panel */}
+        {/* Right - detail panel */}
         <div
           ref={detailRef}
           className="opacity-0 flex flex-col gap-[2vh] lg:sticky lg:top-[12vh]"
@@ -290,7 +290,7 @@ export default function ServicesSectionPixelBgV3() {
 
       </div>
 
-      {/* CTA — direct to pricing */}
+      {/* CTA - direct to pricing */}
       <div className="mt-[6vh]">
         <ArrowButton href="/pricing" variant="solid">
           View Pricing

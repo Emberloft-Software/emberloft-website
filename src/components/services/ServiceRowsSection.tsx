@@ -8,7 +8,7 @@ const services = [
     title: "Web Development",
     subtitle: "Static · WordPress · Fullstack",
     description:
-      "From fast static sites to complex fullstack platforms. We build with Next.js, React, Node.js, and Firebase — whatever the project demands. Every line written in-house.",
+      "From fast static sites to complex fullstack platforms. We build with Next.js, React, Node.js, and Firebase, whatever the project demands. Every line written in-house.",
     tags: ["Next.js", "React", "Node.js", "Firebase", "WordPress"],
     stat: "48+ sites shipped",
     bg: "#F2F2F0",
@@ -19,7 +19,7 @@ const services = [
     title: "Mobile Apps",
     subtitle: "Flutter · iOS · Android",
     description:
-      "Native-feeling cross-platform apps built in Flutter. Authentication, real-time data, payments, push notifications — the full stack, not just the screens.",
+      "Native-feeling cross-platform apps built in Flutter. Authentication, real-time data, payments, push notifications: the full stack, not just the screens.",
     tags: ["Flutter", "iOS", "Android", "Firebase", "REST APIs"],
     stat: "Play Store + App Store ready",
     bg: "#0D0D0D",
@@ -41,7 +41,7 @@ const services = [
     title: "AI Integration",
     subtitle: "LLMs · Automation · Pipelines",
     description:
-      "Embedding real intelligence into products — not gimmicks. LLM integration, automation pipelines, and AI-assisted workflows that actually move the needle.",
+      "Embedding real intelligence into products, not gimmicks. LLM integration, automation pipelines, and AI-assisted workflows that actually move the needle.",
     tags: ["OpenAI", "Claude", "LangChain", "Automation"],
     stat: "Real utility, not demos",
     bg: "#0D0D0D",
@@ -52,7 +52,7 @@ const services = [
     title: "Social Media & Content",
     subtitle: "Posts · Reels · Strategy",
     description:
-      "AI-assisted content production at a fraction of agency rates. Designed posts, scripted reels, content calendars, and performance reports — monthly.",
+      "AI-assisted content production at a fraction of agency rates. Designed posts, scripted reels, content calendars, and performance reports, monthly.",
     tags: ["Instagram", "Facebook", "TikTok", "AI Video", "Copywriting"],
     stat: "From Rs 7,000/month",
     bg: "#F2F2F0",
@@ -145,7 +145,7 @@ export default function ServiceRowsSection() {
               opacity: 0,
             }}
           >
-            {/* Row header — clickable */}
+            {/* Row header - clickable */}
             <button
               onClick={() => toggleRow(i)}
               className="w-full flex items-center justify-between px-[5vw] group"
@@ -178,7 +178,7 @@ export default function ServiceRowsSection() {
                   {service.title}
                 </span>
 
-                {/* Subtitle — hidden on small screens */}
+                {/* Subtitle - hidden on small screens */}
                 <span
                   className="font-geist hidden md:block"
                   style={{
@@ -226,7 +226,7 @@ export default function ServiceRowsSection() {
               <div className="px-[5vw] pb-[4vh]">
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16 max-w-5xl">
 
-                  {/* Left — description */}
+                  {/* Left - description */}
                   <div className="flex-1">
                     <p
                       className="font-geist leading-relaxed mb-6"
@@ -256,7 +256,7 @@ export default function ServiceRowsSection() {
                     </div>
                   </div>
 
-                  {/* Right — stat + CTA */}
+                  {/* Right - stat + CTA */}
                   <div className="flex flex-col gap-4 shrink-0">
                     <div
                       className="rounded-2xl px-6 py-5 border"

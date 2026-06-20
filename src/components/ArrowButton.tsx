@@ -4,12 +4,16 @@ const variants = {
   solid: "bg-[#EEBA0B] text-[#0A0A0A] hover:bg-[#F2F2F0]",
   outline:
     "border border-[#F5F5F5]/40 text-[#F5F5F5] backdrop-blur-sm hover:bg-[#F2F2F0] hover:text-[#0A0A0A] hover:border-[#F2F2F0]",
+  outlineLight:
+    "border border-black/20 text-black hover:bg-black hover:text-[#F5F5F5] hover:border-black",
 };
 
 const iconVariants = {
   solid: "bg-[#0A0A0A] text-[#F5F5F5]",
   outline:
     "bg-[#F5F5F5] border border-[#F5F5F5] text-[#0A0A0A] group-hover:bg-[#0A0A0A] group-hover:border-[#0A0A0A] group-hover:text-[#F5F5F5]",
+  outlineLight:
+    "bg-[#0A0A0A] text-[#F5F5F5] group-hover:bg-[#F5F5F5] group-hover:text-[#0A0A0A]",
 };
 
 type ArrowButtonProps = {

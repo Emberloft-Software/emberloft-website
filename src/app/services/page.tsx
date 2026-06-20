@@ -11,7 +11,7 @@ export default function ServicesPage() {
         label="Services & Pricing"
         title="Work worth"
         titleItalic="paying for."
-        description="Fixed prices. Senior hands. No surprises — just work that performs."
+        description="Fixed prices. Senior hands. No surprises, just work that performs."
       />
       <ServiceRowsSection />
       <ProcessSection />

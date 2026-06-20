@@ -154,7 +154,7 @@ export default function ContactForm() {
               style={{ fontSize: "clamp(0.875rem, 1.1vw, 1rem)" }}
             >
               We read every application ourselves. If it feels like a fit,
-              you'll hear back within 48 hours — from the people who will
+              you'll hear back within 48 hours, from the people who will
               actually work on it.
             </p>
 
@@ -457,7 +457,7 @@ function SuccessState({ name }: { name: string }) {
 
       <p className="success-item opacity-0 font-geist text-black/40 leading-relaxed max-w-sm mb-8">
         Your application is with us. We'll read it properly and get back to
-        you within 48 hours — no automated replies.
+        you within 48 hours, no automated replies.
       </p>
 
       <div
