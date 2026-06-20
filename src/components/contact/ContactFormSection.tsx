@@ -1,6 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Script from "next/script";
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
 
 type FormData = {
   name: string;
@@ -76,11 +86,37 @@ export default function ContactForm() {
     }, "-=600");
   };
 
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
 
     try {
+      if (siteKey && window.grecaptcha) {
+        const token = await new Promise<string>((resolve, reject) => {
+          window.grecaptcha!.ready(() => {
+            window
+              .grecaptcha!.execute(siteKey, { action: "contact_form" })
+              .then(resolve)
+              .catch(reject);
+          });
+        });
+
+        const verifyRes = await fetch("/api/verify-recaptcha", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token }),
+        });
+        const verifyData = await verifyRes.json();
+
+        if (!verifyData.success) {
+          alert("We couldn't verify this submission as human. Please try again.");
+          setSending(false);
+          return;
+        }
+      }
+
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -120,6 +156,12 @@ export default function ContactForm() {
       ref={sectionRef}
       className="w-full bg-[#F2F2F0] py-[10vh] px-[5vw]"
     >
+      {siteKey && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
+          strategy="afterInteractive"
+        />
+      )}
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-[6vw] items-start">
 
@@ -211,11 +253,11 @@ export default function ContactForm() {
                 Or email directly
               </p>
               <a
-                href="mailto:hello@emberloft.io"
+                href="mailto:emberloft.studio@gmail.com"
                 className="font-geist font-semibold text-black hover:text-[#FB4B54] transition-colors duration-200"
                 style={{ fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)" }}
               >
-                hello@emberloft.io
+                emberloft.studio@gmail.com
               </a>
             </div>
           </div>

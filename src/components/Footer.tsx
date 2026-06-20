@@ -268,8 +268,8 @@ export default function Footer() {
               { label: "LinkedIn", href: "#" },
               { label: "Dribbble", href: "#" },
               {
-                label: "hello@emberloft.io",
-                href: "mailto:hello@emberloft.io",
+                label: "emberloft.studio@gmail.com",
+                href: "mailto:emberloft.studio@gmail.com",
               },
             ].map((s) => (
               <li key={s.label}>
@@ -297,13 +297,13 @@ export default function Footer() {
 
         <div className="flex items-center gap-6">
           <a
-            href="#"
+            href="/privacy"
             className="font-geist text-white/40 text-xs hover:text-white/50 transition-colors duration-200"
           >
             Privacy
           </a>
           <a
-            href="#"
+            href="/terms"
             className="font-geist text-white/40 text-xs hover:text-white/50 transition-colors duration-200"
           >
             Terms

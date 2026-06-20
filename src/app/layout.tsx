@@ -3,6 +3,7 @@ import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -20,6 +21,9 @@ export const metadata = {
   metadataBase: new URL("https://emberloft.io"),
   title: "Emberloft",
   description: "Web Development, Mobile, UI/UX, AI Integration",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +40,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

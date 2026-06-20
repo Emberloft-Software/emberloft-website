@@ -132,7 +132,7 @@ export default function ContactInfoSection() {
               { label: "LinkedIn", handle: "@emberloft", href: "#", color: "#EEBA0B" },
               { label: "Twitter / X", handle: "@emberloft", href: "#", color: "#FB4B54" },
               { label: "Dribbble", handle: "@emberloft", href: "#", color: "#EEBA0B" },
-              { label: "Email", handle: "hello@emberloft.io", href: "mailto:hello@emberloft.io", color: "#FB4B54" },
+              { label: "Email", handle: "emberloft.studio@gmail.com", href: "mailto:emberloft.studio@gmail.com", color: "#FB4B54" },
             ].map((link, i) => (
               <a
                 key={i}
