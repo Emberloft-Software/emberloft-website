@@ -134,13 +134,13 @@ export default function DontSection() {
       className="w-screen bg-[#F5F5F5] py-[12vh] px-[5vw] flex items-center justify-center overflow-hidden"
       style={{ minHeight: "80vh" }}
     >
-      <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-[4vw] w-full max-w-6xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-[3vw] w-full md:w-fit mx-auto">
 
         {/* "We don't" heading */}
         <div className="relative shrink-0 flex items-center select-none">
           <span
             className="font-geist font-medium text-black"
-            style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.6rem)", lineHeight: 1, letterSpacing: "-0.05em" }}
+            style={{ fontSize: "clamp(2rem, 3.1vw, 3.8rem)", lineHeight: 1, letterSpacing: "-0.05em" }}
           >
             We{" "}
           </span>
@@ -179,7 +179,7 @@ export default function DontSection() {
             <span
               className="font-instrument-serif italic font-normal"
               style={{
-                fontSize: "clamp(2.6rem, 5.5vw, 4.6rem)",
+                fontSize: "clamp(2rem, 3.1vw, 3.8rem)",
                 lineHeight: 1,
                 letterSpacing: "0",
                 color: "#FB4B54",
@@ -190,13 +190,11 @@ export default function DontSection() {
           </span>
         </div>
 
-        {/* Rotating slot stack - full width on mobile, flex-1 on desktop */}
+        {/* Rotating slot stack - single centered line on mobile, full slot
+            preview with fixed width on tablet/desktop */}
         <div
-          className="relative flex flex-col w-full md:flex-1 overflow-hidden"
-          style={{
-            perspective: "600px",
-            height: `${TOTAL_SLOTS * ITEM_HEIGHT_VH}vh`,
-          }}
+          className="relative flex flex-col items-center justify-center min-h-[10vh] w-full md:items-stretch md:justify-start md:w-[clamp(420px,46vw,900px)] md:h-[50vh] overflow-hidden"
+          style={{ perspective: "600px" }}
         >
           {Array.from({ length: TOTAL_SLOTS }).map((_, slotPos) => {
             const isCenter = slotPos === VISIBLE_ABOVE;
@@ -210,32 +208,33 @@ export default function DontSection() {
 
             const fontSize =
               distFromCenter === 0
-                ? "clamp(2.2rem, 5.5vw, 4.4rem)"
+                ? "clamp(1.5rem, 2.9vw, 3.6rem)"
                 : distFromCenter === 1
-                ? "clamp(1.1rem, 3vw, 2.6rem)"
-                : "clamp(0.85rem, 2.2vw, 1.9rem)";
+                ? "clamp(1rem, 1.8vw, 2.2rem)"
+                : "clamp(0.8rem, 1.4vw, 1.7rem)";
 
             return (
               <div
                 key={slotPos}
                 ref={(el) => { slotRefs.current[slotPos] = el; }}
-                className="flex items-center"
+                className={
+                  isCenter
+                    ? "flex items-center justify-center md:justify-start h-auto md:h-[10vh] md:border-l-[3px] md:pl-[0.6em] border-[#FB4B54]"
+                    : "hidden md:flex md:items-center h-[10vh]"
+                }
                 style={{
-                  height: `${ITEM_HEIGHT_VH}vh`,
                   minWidth: 0,
                   transformOrigin: "center center",
                   willChange: "transform, opacity",
                 }}
               >
                 <span
-                  className="font-geist font-medium text-black transition-all duration-300 whitespace-nowrap"
+                  className="font-geist font-medium text-black transition-all duration-300 whitespace-normal md:whitespace-nowrap text-center md:text-left"
                   style={{
                     fontSize,
                     opacity,
                     letterSpacing: "-0.05em",
                     lineHeight: isCenter ? 1.3 : 1,
-                    borderLeft: isCenter ? "3px solid #FB4B54" : "3px solid transparent",
-                    paddingLeft: "0.6em",
                     display: "block",
                     width: "100%",
                     overflow: "hidden",
@@ -248,9 +247,9 @@ export default function DontSection() {
             );
           })}
 
-          {/* Center highlight rule */}
+          {/* Center highlight rule - brackets the preview slots, desktop only */}
           <div
-            className="absolute left-0 right-0 pointer-events-none"
+            className="hidden md:block absolute left-0 right-0 pointer-events-none"
             style={{
               top: `${VISIBLE_ABOVE * ITEM_HEIGHT_VH}vh`,
               height: `${ITEM_HEIGHT_VH}vh`,

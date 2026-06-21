@@ -1,5 +1,5 @@
 import PageHero from "@/components/PageHero";
-import ServiceRowsSection from "@/components/services/ServiceRowsSection";
+import ServiceSplitSection from "@/components/services/ServiceSplitSection";
 import ProcessSection from "@/components/services/ProcessSection";
 import CompareSection from "@/components/services/CompareSection";
 import PricingSection from "@/components/pricing/PricingSection";
@@ -13,7 +13,7 @@ export default function ServicesPage() {
         titleItalic="paying for."
         description="Fixed prices. Senior hands. No surprises, just work that performs."
       />
-      <ServiceRowsSection />
+      <ServiceSplitSection />
       <ProcessSection />
       <CompareSection />
       <PricingSection />

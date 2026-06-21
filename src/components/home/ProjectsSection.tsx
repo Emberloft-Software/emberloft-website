@@ -60,12 +60,12 @@ export default function ProjectsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#0D0D0D]">
+    <section ref={sectionRef} className="relative w-screen bg-[#0D0D0D]">
       {/* Header - scrolls normally, sits above the pinned stack */}
       <div className="px-[5vw] pt-[10vh] pb-[10vh] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-[2vh]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FB4B54]" />
+            <span className="text-[#FB4B54] text-sm">✦</span>
             <span className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.18em] uppercase">
               Sample Work
             </span>

@@ -139,7 +139,7 @@ export default function Footer() {
           className="relative z-20 px-[5vw] pt-[12vh] pb-[10vh] flex flex-col items-center text-center"
         >
           <div className="cta-line opacity-0 flex items-center gap-2 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
+            <span className="text-[#EEBA0B] text-sm">✦</span>
             <span className="font-geist text-[#EEBA0B] text-xs tracking-[0.2em] uppercase font-medium">
               A new beginning
             </span>

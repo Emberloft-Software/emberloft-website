@@ -2,7 +2,7 @@ import HeroSection from "@/components/home/HeroSection";
 import PositionSection from "@/components/home/PositionSection";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesSectionPixelBgV3 from "@/components/home/ServicesSectionPixelBgV3";
-import WorkSection from "@/components/home/WorkSection";
+import WorkSectionDontsCrossSingle from "@/components/home/WorkSectionDontsCrossSingle";
 import QuoteSection from "@/components/home/QuoteSection";
 import FAQSection from "@/components/home/FaqSection";
 import CapabilitiesSection from "@/components/home/CapabilitiesSection";
@@ -17,7 +17,7 @@ export default function HomePage() {
         <PositionSection />
         <AboutSection />
         <ServicesSectionPixelBgV3 />
-        <WorkSection />
+        <WorkSectionDontsCrossSingle />
         <ProjectsSection />
         <QuoteSection />
         {/* <StatsSection /> */}

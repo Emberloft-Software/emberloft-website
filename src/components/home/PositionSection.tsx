@@ -80,7 +80,7 @@ export default function PositionSection() {
             trigger: sectionRef.current,
             start: "top 75%",
             end: "bottom 40%",
-            scrub: true,
+            scrub: 0.6,
           },
         })
         .to(
@@ -140,7 +140,10 @@ export default function PositionSection() {
       {/* Text block */}
       <div
         className="max-w-5xl w-full flex flex-col items-center"
-        style={{ gap: "0.15em" }}
+        style={{
+          fontSize: "clamp(2rem, 3.5vw, 4.5rem)",
+          gap: "0.1em",
+        }}
       >
         {lineGroups.map((lineWords, li) => (
           <div
@@ -149,12 +152,11 @@ export default function PositionSection() {
               lineRefs.current[li] = el;
             }}
             style={{
-              opacity: 0.5,
+              opacity: 0.3,
               transform: "translateX(-3%)",
-              padding: "0.05em 0",
-              fontSize: "clamp(2rem, 3.5vw, 4.5rem)",
+              fontSize: "1em",
               fontWeight: 500,
-              lineHeight: 1.15,
+              lineHeight: 1.05,
               letterSpacing: "-0.05em",
             }}
           >

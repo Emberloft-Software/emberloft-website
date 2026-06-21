@@ -94,7 +94,7 @@ export default function TeamSection() {
         >
           <div>
             <div className="flex items-center gap-2 mb-[2vh]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FB4B54]" />
+              <span className="text-[#FB4B54] text-sm">✦</span>
               <span className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.18em] uppercase">
                 The People
               </span>

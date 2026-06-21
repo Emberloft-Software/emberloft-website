@@ -110,7 +110,7 @@ export default function ContactInfoSection() {
         {/* ── Left: social + location ── */}
         <div ref={leftRef} style={{ opacity: 0 }}>
           <div className="flex items-center gap-2 mb-[3vh]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
+            <span className="text-[#EEBA0B] text-sm">✦</span>
             <span className="font-geist text-[#EEBA0B] text-xs font-semibold tracking-[0.18em] uppercase">
               Find us
             </span>
@@ -196,7 +196,7 @@ export default function ContactInfoSection() {
         {/* ── Right: quick FAQs ── */}
         <div ref={rightRef}>
           <div className="flex items-center gap-2 mb-[3vh]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FB4B54]" />
+            <span className="text-[#FB4B54] text-sm">✦</span>
             <span className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.18em] uppercase">
               Before you reach out
             </span>

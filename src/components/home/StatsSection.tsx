@@ -114,7 +114,7 @@ export default function StatsSection() {
         >
           <div>
             <div className="flex items-center gap-2 mb-[2vh]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
+              <span className="text-[#EEBA0B] text-sm">✦</span>
               <span className="font-geist text-[#EEBA0B] text-xs font-semibold tracking-[0.18em] uppercase">
                 By the numbers
               </span>

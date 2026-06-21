@@ -127,24 +127,32 @@ export default function PageHero({
       />
 
       {/* Content */}
-      <div className="relative z-20 max-w-6xl mx-auto">
+      <div className="relative z-20">
 
         {/* Label */}
         <span
           ref={labelRef}
-          className="font-geist font-semibold text-xs tracking-[0.2em] uppercase mb-[2.5vh] block"
-          style={{ opacity: 0, color: accentColor }}
+          className="flex items-center gap-2 mb-[2.5vh]"
+          style={{ opacity: 0 }}
         >
-          · {label}
+          <span className="text-sm shrink-0" style={{ color: accentColor }}>
+            ✦
+          </span>
+          <span
+            className="font-geist font-semibold text-xs tracking-[0.2em] uppercase"
+            style={{ color: accentColor }}
+          >
+            {label}
+          </span>
         </span>
 
         {/* Title */}
         <h1
           ref={titleRef}
-          className="font-geist font-black text-white leading-[0.95] mb-[3vh]"
+          className="font-geist font-medium text-white leading-[0.95] mb-[3vh] max-w-4xl"
           style={{
             opacity: 0,
-            fontSize: "clamp(3rem, 8vw, 7rem)",
+            fontSize: "clamp(2.75rem, 7vw, 6rem)",
           }}
         >
           {title}{" "}
@@ -157,7 +165,7 @@ export default function PageHero({
             </span>
           )}
           {titleSuffix && (
-            <span className="font-geist font-black text-white">
+            <span className="font-geist font-medium text-white">
               {titleSuffix}
             </span>
           )}

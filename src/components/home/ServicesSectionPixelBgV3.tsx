@@ -149,7 +149,7 @@ export default function ServicesSectionPixelBgV3() {
 
       {/* Label */}
       <div className="flex items-center gap-2 mb-[3vh]">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#EEBA0B]" />
+        <span className="text-[#EEBA0B] text-sm">✦</span>
         <span className="font-geist text-[#EEBA0B] text-xs font-medium tracking-[0.18em] uppercase">
           What We Do
         </span>

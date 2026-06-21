@@ -390,9 +390,9 @@ export default function PricingSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#F2F2F0] py-[10vh] px-[5vw]"
+      className="w-full bg-[#F5F5F5] py-[10vh] px-[5vw]"
     >
-      <div className="max-w-6xl mx-auto">
+      <div>
 
         {/* Header */}
         <div
@@ -402,13 +402,13 @@ export default function PricingSection() {
         >
           <div>
             <div className="flex items-center gap-2 mb-[2vh]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FB4B54]" />
+              <span className="text-[#FB4B54] text-sm">✦</span>
               <span className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.18em] uppercase">
                 Pricing
               </span>
             </div>
             <h2
-              className="font-geist font-black text-black leading-tight"
+              className="font-geist font-medium text-black leading-tight"
               style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
             >
               Transparent pricing.{" "}
@@ -480,7 +480,7 @@ export default function PricingSection() {
 
                 {/* Plan name */}
                 <h3
-                  className="font-geist font-black mb-1"
+                  className="font-geist font-medium mb-1"
                   style={{
                     fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
                     color: plan.highlight ? "white" : "black",
@@ -560,7 +560,7 @@ export default function PricingSection() {
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <span
-                      className="font-geist font-black leading-none"
+                      className="font-geist font-medium leading-none"
                       style={{
                         fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)",
                         color: plan.highlight ? "white" : "black",
