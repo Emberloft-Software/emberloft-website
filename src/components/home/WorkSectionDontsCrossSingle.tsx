@@ -37,6 +37,26 @@ export default function WorkSectionDontsCrossSingle() {
     });
   };
 
+  // Longer phrases (e.g. "race to the cheapest price.") are wider than
+  // shorter ones (e.g. "do template work.") at the same font-size, so they'd
+  // wrap to a second line. Scale just the overflowing ones down to fit on
+  // one line instead of changing the font-size for every item.
+  const fitText = () => {
+    const textEl = textRef.current;
+    if (!textEl) return;
+    textEl.style.transform = "scale(1)";
+    const available = textEl.clientWidth;
+    const actual = textEl.scrollWidth;
+    const scale = actual > available ? available / actual : 1;
+    textEl.style.transform = `scale(${scale})`;
+  };
+
+  useEffect(() => {
+    fitText();
+    window.addEventListener("resize", fitText);
+    return () => window.removeEventListener("resize", fitText);
+  }, []);
+
   useEffect(() => {
     if (!textRef.current) return;
     let currentSplit: SplitType | null = null;
@@ -49,6 +69,7 @@ export default function WorkSectionDontsCrossSingle() {
       currentSplit?.revert();
       textRef.current.textContent = items[indexRef.current];
       setDisplayIndex(indexRef.current);
+      fitText();
       currentSplit = new SplitType(textRef.current, { types: "chars" });
       const split = currentSplit;
 
@@ -120,7 +141,7 @@ export default function WorkSectionDontsCrossSingle() {
       <span className="relative inline-block mt-[2vh] max-w-[90vw]">
         <span
           ref={textRef}
-          className="font-geist font-medium text-black block overflow-hidden"
+          className="font-geist font-medium text-black block overflow-hidden whitespace-nowrap"
           style={{ fontSize: "clamp(2.4rem, 6.5vw, 5.6rem)", lineHeight: 1.2, letterSpacing: "-0.03em" }}
         >
           {items[0]}

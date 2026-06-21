@@ -62,7 +62,7 @@ export default function ProjectsSection() {
   return (
     <section ref={sectionRef} className="relative w-screen bg-[#0D0D0D]">
       {/* Header - scrolls normally, sits above the pinned stack */}
-      <div className="px-[5vw] pt-[10vh] pb-[10vh] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      <div className="px-[5vw] pt-[10vh] pb-[4vh] flex flex-col items-start sm:flex-row sm:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-[2vh]">
             <span className="text-[#FB4B54] text-sm">✦</span>
@@ -81,8 +81,8 @@ export default function ProjectsSection() {
             </span>
           </h2>
         </div>
-        <ArrowButton href="#" variant="outline">
-          See More Samples
+        <ArrowButton href="/services" variant="outline">
+          See Our Services
         </ArrowButton>
       </div>
 

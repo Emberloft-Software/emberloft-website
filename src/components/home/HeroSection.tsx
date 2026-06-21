@@ -84,13 +84,13 @@ export default function HeroSection() {
           <div className="flex-1 flex flex-col justify-center pt-28 md:pt-32">
             {/* Headline */}
             <div className="mb-8">
-              <h1 className="font-geist text-[clamp(3rem,7vw,4.5rem)] font-bold leading-none tracking-tighter text-[#F5F5F5]">
+              <h1 className="font-geist text-[clamp(3rem,7vw,4.5rem)] font-bold leading-[1.08] sm:leading-[1.04] md:leading-none tracking-tighter text-[#F5F5F5]">
                 Quiet Craft.
               </h1>
-              <h1 className="font-instrument-serif text-[clamp(3rem,7vw,4.5rem)] font-normal leading-none tracking-normal text-[#F5F5F5] italic">
+              <h1 className="font-instrument-serif text-[clamp(3rem,7vw,4.5rem)] font-normal leading-[1.08] sm:leading-[1.04] md:leading-none tracking-normal text-[#F5F5F5] italic">
                 Loud
               </h1>
-              <h1 className="font-geist text-[clamp(3rem,7vw,4.5rem)] font-bold leading-none tracking-tighter text-[#F5F5F5]">
+              <h1 className="font-geist text-[clamp(3rem,7vw,4.5rem)] font-bold leading-[1.08] sm:leading-[1.04] md:leading-none tracking-tighter text-[#F5F5F5]">
                 Results.
               </h1>
             </div>

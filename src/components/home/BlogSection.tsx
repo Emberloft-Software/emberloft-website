@@ -66,7 +66,7 @@ export default function BlogSection() {
       className="w-screen bg-[#F5F5F5] py-[12vh] px-[5vw]"
     >
       {/* Top row - label + heading + CTA */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-[7vh]">
+      <div className="flex flex-col items-start sm:flex-row sm:items-end justify-between gap-6 mb-[7vh]">
         <div>
           <div className="flex items-center gap-2 mb-[2vh]">
             <span className="font-geist text-[#FB4B54] text-xs font-medium tracking-[0.18em] uppercase">

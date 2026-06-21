@@ -160,12 +160,16 @@ export default function Footer() {
             </span>
           </h2>
 
+          <p className="cta-line opacity-0 font-geist text-white/60 text-sm md:text-base mb-8 max-w-md">
+            Got a project worth building right? Let&apos;s see if we&apos;re a fit.
+          </p>
+
           <div className="cta-line opacity-0 flex flex-wrap justify-center gap-3">
-            <ArrowButton href="#" variant="solid">
-              Apply to Work With Us
+            <ArrowButton href="/contact" variant="solid">
+              Contact Us
             </ArrowButton>
-            <ArrowButton href="#" variant="outline">
-              Let&apos;s Talk
+            <ArrowButton href="/services" variant="outline">
+              View Our Services
             </ArrowButton>
           </div>
         </div>
