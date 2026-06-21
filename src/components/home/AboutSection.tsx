@@ -73,11 +73,11 @@ export default function AboutSection() {
         {/* Heading */}
         <h2
           ref={headingRef}
-          className="font-geist text-[clamp(1.6rem,3.2vw,2.6rem)] font-medium text-black text-left opacity-0"
-          style={{ lineHeight: 1.15, letterSpacing: "-0.05em" }}
+          className="font-geist text-[clamp(1.9rem,3.8vw,3.1rem)] font-medium text-black text-left opacity-0"
+          style={{ lineHeight: 1.12, letterSpacing: "-0.05em" }}
         >
-          A studio of a focused few. We keep our circle small on purpose,
-          fewer hands, more care. Names stay quiet. The work stays loud.
+          A studio of a focused few. Every project gets a senior hand and a
+          full team&apos;s attention, nothing handed off, nothing diluted.
         </h2>
       </div>
 
@@ -89,12 +89,13 @@ export default function AboutSection() {
         {/* ── Col 1: Large card with image below text ── */}
         <div className="about-card opacity-0 bg-white rounded-2xl overflow-hidden flex flex-col sm:row-span-2 lg:row-span-1">
           <div className="p-6">
-            <h3 className="font-geist font-medium text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-xl mb-2">
               Craft over volume.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              A studio of a focused few. We keep our circle small on purpose,
-              fewer hands, more care. Names stay quiet. The work stays loud.
+              We take on a handful of projects at a time, not because we have
+              to, but because that&apos;s what real craft costs. Every brief
+              gets full attention, start to finish.
             </p>
           </div>
           <div className="relative flex-1 min-h-[30vh]">
@@ -111,31 +112,35 @@ export default function AboutSection() {
         <div className="flex flex-col gap-4 md:gap-6">
           {/* Text card 1 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-medium text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-xl mb-2">
               Strategy before surface.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              Beauty without reasoning is decoration. We start with the why.
+              Every engagement starts in Figma, mapping the why before a
+              single pixel ships. Beauty without reasoning is decoration.
             </p>
           </div>
 
           {/* Text card 2 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-medium text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-xl mb-2">
               Senior hands only.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              The people who pitch are the people who build.
+              The people who pitch the work are the same people who design
+              and build it. No handoffs, no juniors learning on your budget.
             </p>
           </div>
 
-          {/* Image card */}
-          <div className="about-card opacity-0 rounded-2xl overflow-hidden relative min-h-[70vh]">
-            <Image
-              src="/about-2.jpg"
-              alt="Team"
-              fill
-              className="object-cover object-center"
+          {/* Video card - Emberloft logo animation */}
+          <div className="about-card opacity-0 rounded-2xl overflow-hidden relative min-h-[45vh]">
+            <video
+              src="/emberloft-logo-animation.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
         </div>
@@ -153,34 +158,35 @@ export default function AboutSection() {
             {/* Dark gradient overlay */}
             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="font-geist font-medium text-white text-lg mb-1.5 leading-tight">
+              <h3 className="font-geist font-medium text-white text-xl mb-1.5 leading-tight">
                 Accountable to the work.
               </h3>
               <p className="font-geist text-white/70 text-sm leading-relaxed">
-                We don&apos;t ship anything we wouldn&apos;t sign.
+                We don&apos;t ship anything we wouldn&apos;t put our name on.
               </p>
             </div>
           </div>
 
           {/* Text card 3 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-medium text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-xl mb-2">
               One team, start to finish.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              Web, mobile, UI/UX and AI: the same hands carry it from first
-              sketch to shipped product.
+              UI/UX in Figma, then built for real in React, Next.js and
+              Tailwind: the same hands carry it from first sketch to shipped
+              product.
             </p>
           </div>
 
           {/* Text card 4 */}
           <div className="about-card opacity-0 bg-white rounded-2xl p-6">
-            <h3 className="font-geist font-medium text-black text-lg mb-2">
+            <h3 className="font-geist font-medium text-black text-xl mb-2">
               Built to last.
             </h3>
             <p className="font-geist text-black/50 text-sm leading-relaxed">
-              Clean code and clear documentation, systems we&apos;re proud
-              to hand over.
+              Clean code, smooth motion, and documentation we&apos;re proud
+              to hand over, not just a pretty deploy.
             </p>
           </div>
         </div>
