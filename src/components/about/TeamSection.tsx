@@ -12,7 +12,7 @@ const team = [
     tags: ["Full-Stack Dev", "Mobile", "AI Integration"],
     image: "/team-chanka-herath.webp",
     accent: "#FB4B54",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/chanka-herath/",
   },
   {
     name: "Sanuth Mandepa",
@@ -22,7 +22,7 @@ const team = [
     tags: ["UI / UX", "WordPress", "Brand"],
     image: "/team-sanuth-mandepa.webp",
     accent: "#290052",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/sanuthmandepa/",
   },
   {
     name: "Ranan Hewawasam",
