@@ -264,9 +264,18 @@ export default function Footer() {
           </p>
           <ul className="flex flex-col gap-3.5">
             {[
-              { label: "Twitter / X", href: "#" },
-              { label: "LinkedIn", href: "#" },
-              { label: "Dribbble", href: "#" },
+              {
+                label: "Instagram",
+                href: "https://www.instagram.com/emberloft.studio?igsh=MTlldmpvajVueGNvbA==",
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/company/emberloft",
+              },
+              {
+                label: "Facebook",
+                href: "https://www.facebook.com/profile.php?id=61589472851916",
+              },
               {
                 label: "emberloft.studio@gmail.com",
                 href: "mailto:emberloft.studio@gmail.com",
@@ -275,6 +284,8 @@ export default function Footer() {
               <li key={s.label}>
                 <a
                   href={s.href}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="font-geist text-white/50 text-[clamp(0.8rem,1.1vw,0.9rem)] hover:text-white transition-colors duration-200"
                 >
                   {s.label}

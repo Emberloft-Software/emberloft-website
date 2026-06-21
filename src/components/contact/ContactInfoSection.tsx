@@ -129,14 +129,16 @@ export default function ContactInfoSection() {
           {/* Social links */}
           <div className="flex flex-col gap-3 mb-[5vh]">
             {[
-              { label: "LinkedIn", handle: "@emberloft", href: "#", color: "#EEBA0B" },
-              { label: "Twitter / X", handle: "@emberloft", href: "#", color: "#FB4B54" },
-              { label: "Dribbble", handle: "@emberloft", href: "#", color: "#EEBA0B" },
+              { label: "Instagram", handle: "@emberloft.studio", href: "https://www.instagram.com/emberloft.studio?igsh=MTlldmpvajVueGNvbA==", color: "#FB4B54" },
+              { label: "LinkedIn", handle: "@emberloft", href: "https://www.linkedin.com/company/emberloft", color: "#EEBA0B" },
+              { label: "Facebook", handle: "Emberloft", href: "https://www.facebook.com/profile.php?id=61589472851916", color: "#EEBA0B" },
               { label: "Email", handle: "emberloft.studio@gmail.com", href: "mailto:emberloft.studio@gmail.com", color: "#FB4B54" },
             ].map((link, i) => (
               <a
                 key={i}
                 href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="group flex items-center justify-between px-5 py-4 rounded-xl border border-white/5 hover:border-white/15 transition-all duration-200"
                 style={{ backgroundColor: "#161616" }}
               >

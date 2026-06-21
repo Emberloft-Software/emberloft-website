@@ -129,7 +129,7 @@ export default function Navbar() {
 
         {/* CTA button - desktop only */}
         <ArrowButton href="/contact" className="hidden md:inline-flex">
-          Explore More
+          Let&apos;s Build Together
         </ArrowButton>
 
         {/* Hamburger button - mobile only */}
@@ -198,7 +198,7 @@ export default function Navbar() {
           {/* CTA */}
           <div ref={ctaRef} className="mt-auto pb-12 pt-8 opacity-0">
             <ArrowButton href="/contact" onClick={() => setMenuOpen(false)}>
-              Explore More
+              Let&apos;s Build Together
             </ArrowButton>
           </div>
         </div>

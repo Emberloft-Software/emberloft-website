@@ -97,12 +97,12 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-              <ArrowButton href="#" variant="solid">
-                Apply To Work With Us
+              <ArrowButton href="/contact" variant="solid">
+                Start Your Project
               </ArrowButton>
 
-              <ArrowButton href="#" variant="outline">
-                Let&apos;s Talk
+              <ArrowButton href="/services" variant="outline">
+                Explore Our Services
               </ArrowButton>
             </div>
           </div>
