@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import type { JSAnimation } from "animejs";
 import ArrowButton from "../ArrowButton";
 
@@ -65,14 +64,16 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative w-screen h-screen overflow-hidden bg-[#0A0A0A]">
-        {/* Background image - placeholder until the logo animation hero video is ready */}
-        <Image
-          src="/emberloft-logo-particle-animation-hero.webp"
-          alt="Emberloft logo particle animation"
-          fill
-          priority
-          className="object-cover opacity-80"
-        />
+        {/* Background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
+        >
+          <source src="/emberloft-logo-particle-animation-hero.mp4" type="video/mp4" />
+        </video>
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-linear-to-r from-[#0A0A0A]/70 via-[#0A0A0A]/30 to-transparent" />

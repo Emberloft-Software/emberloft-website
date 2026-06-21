@@ -136,7 +136,7 @@ export default function ServiceSplitSection() {
       <div ref={headingRef} className="mb-[7vh]" style={{ opacity: 0 }}>
         <div className="flex items-center gap-2 mb-[2vh]">
           <span className="text-sm" style={{ color: ACCENT }}>✦</span>
-          <span className="font-geist text-xs font-semibold tracking-[0.18em] uppercase" style={{ color: ACCENT }}>
+          <span className="font-geist text-xs font-medium tracking-[0.2em] uppercase" style={{ color: ACCENT }}>
             What we do
           </span>
         </div>

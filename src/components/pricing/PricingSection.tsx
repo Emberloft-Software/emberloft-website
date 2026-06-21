@@ -403,13 +403,18 @@ export default function PricingSection() {
           <div>
             <div className="flex items-center gap-2 mb-[2vh]">
               <span className="text-[#FB4B54] text-sm">✦</span>
-              <span className="font-geist text-[#FB4B54] text-xs font-semibold tracking-[0.18em] uppercase">
+              <span className="font-geist text-[#FB4B54] text-xs font-medium tracking-[0.2em] uppercase">
                 Pricing
               </span>
             </div>
             <h2
-              className="font-geist font-medium text-black leading-tight"
-              style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+              className="font-geist text-black"
+              style={{
+                fontSize: "clamp(2rem, 5vw, 4rem)",
+                fontWeight: 500,
+                lineHeight: 1.3,
+                letterSpacing: "-0.05em",
+              }}
             >
               Transparent pricing.{" "}
               <span className="font-instrument-serif font-normal italic text-[#FB4B54]">

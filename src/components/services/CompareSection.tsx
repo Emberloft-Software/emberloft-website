@@ -88,13 +88,18 @@ export default function CompareSection() {
       >
         <div className="flex items-center gap-2 mb-[2vh]">
           <span className="text-sm" style={{ color: ACCENT }}>✦</span>
-          <span className="font-geist text-xs font-semibold tracking-[0.18em] uppercase" style={{ color: ACCENT }}>
+          <span className="font-geist text-xs font-medium tracking-[0.2em] uppercase" style={{ color: ACCENT }}>
             The difference
           </span>
         </div>
         <h2
-          className="font-geist font-medium text-[#0A0A0A] leading-tight max-w-2xl"
-          style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+          className="font-geist text-[#0A0A0A] max-w-2xl"
+          style={{
+            fontSize: "clamp(2rem, 5vw, 4rem)",
+            fontWeight: 500,
+            lineHeight: 1.3,
+            letterSpacing: "-0.05em",
+          }}
         >
           Most agencies.{" "}
           <span className="font-instrument-serif font-normal italic" style={{ color: ACCENT }}>

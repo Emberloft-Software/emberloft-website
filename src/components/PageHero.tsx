@@ -139,7 +139,7 @@ export default function PageHero({
             ✦
           </span>
           <span
-            className="font-geist font-semibold text-xs tracking-[0.2em] uppercase"
+            className="font-geist font-medium text-xs tracking-[0.2em] uppercase"
             style={{ color: accentColor }}
           >
             {label}
@@ -153,6 +153,7 @@ export default function PageHero({
           style={{
             opacity: 0,
             fontSize: "clamp(2.75rem, 7vw, 6rem)",
+            letterSpacing: "-0.05em",
           }}
         >
           {title}{" "}

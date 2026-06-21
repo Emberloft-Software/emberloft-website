@@ -123,13 +123,18 @@ export default function ProcessSection() {
         <div>
           <div className="flex items-center gap-2 mb-[2vh]">
             <span className="text-sm" style={{ color: ACCENT }}>✦</span>
-            <span className="font-geist text-xs font-semibold tracking-[0.18em] uppercase" style={{ color: ACCENT }}>
+            <span className="font-geist text-xs font-medium tracking-[0.2em] uppercase" style={{ color: ACCENT }}>
               How it works
             </span>
           </div>
           <h2
-            className="font-geist font-medium text-white leading-tight"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+            className="font-geist text-white"
+            style={{
+              fontSize: "clamp(2rem, 5vw, 4rem)",
+              fontWeight: 500,
+              lineHeight: 1.3,
+              letterSpacing: "-0.05em",
+            }}
           >
             Six steps.{" "}
             <span className="font-instrument-serif font-normal italic text-[#FB4B54]">
