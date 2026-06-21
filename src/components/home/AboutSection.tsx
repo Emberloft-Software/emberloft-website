@@ -100,8 +100,8 @@ export default function AboutSection() {
           </div>
           <div className="relative flex-1 min-h-[30vh]">
             <Image
-              src="/about-1.png"
-              alt="Craft"
+              src="/emberloft-craft-over-volume-design-detail.webp"
+              alt="Macro detail shot representing Emberloft's craft-focused design approach"
               fill
               className="object-cover object-top"
             />
@@ -150,8 +150,8 @@ export default function AboutSection() {
           {/* Image with text overlay */}
           <div className="about-card opacity-0 rounded-2xl overflow-hidden relative min-h-[35vh] flex-1">
             <Image
-              src="/about-3.png"
-              alt="Accountable"
+              src="/emberloft-accountable-to-the-work-ar-goggles.webp"
+              alt="Person wearing AR goggles, representing Emberloft's accountable, hands-on approach to the work"
               fill
               className="object-cover object-center"
             />

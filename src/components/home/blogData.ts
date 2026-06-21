@@ -97,7 +97,7 @@ export const blogPosts: BlogPost[] = [
     date: "Jun 23, 2026",
     readTime: "6 min read",
     color: "#EEBA0B",
-    image: "/about-1.png",
+    image: "/design-brief-before-code-keyboard-typing.webp",
     author: "Emberloft Studio",
     content: [
       {
@@ -168,7 +168,7 @@ export const blogPosts: BlogPost[] = [
     date: "Jun 26, 2026",
     readTime: "6 min read",
     color: "#FB4B54",
-    image: "/about-3.png",
+    image: "/quick-client-revision-cost-developer-workspace.webp",
     author: "Emberloft Studio",
     content: [
       {
