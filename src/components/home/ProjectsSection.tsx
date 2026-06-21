@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ArrowButton from "../ArrowButton";
 import { projects } from "./projectsData";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -81,9 +80,9 @@ export default function ProjectsSection() {
             </span>
           </h2>
         </div>
-        <ArrowButton href="#" variant="outline">
+        {/* <ArrowButton href="#" variant="outline">
           See More Samples
-        </ArrowButton>
+        </ArrowButton> */}
       </div>
 
       {/* Pinned stack - each panel sticks to the top of the viewport; the
