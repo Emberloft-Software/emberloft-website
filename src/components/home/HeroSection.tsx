@@ -70,6 +70,8 @@ export default function HeroSection() {
           muted
           loop
           playsInline
+          preload="auto"
+          poster="/emberloft-logo-particle-animation-hero-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-80"
         >
           <source src="/emberloft-logo-particle-animation-hero.mp4" type="video/mp4" />

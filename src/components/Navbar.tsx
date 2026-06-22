@@ -103,8 +103,9 @@ export default function Navbar() {
           <Image
             src="/logo.webp"
             alt="Emberloft logo"
-            width={500}
-            height={397}
+            width={200}
+            height={159}
+            priority
             className="h-9 md:h-12 w-auto"
           />
           emberloft

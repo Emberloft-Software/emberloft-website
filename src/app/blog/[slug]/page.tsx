@@ -90,7 +90,7 @@ export default async function BlogPostPage({
               src={post.image}
               alt={post.title}
               fill
-              sizes="100vw"
+              sizes="(min-width: 768px) 768px, 100vw"
               className="object-cover object-center"
               priority
             />

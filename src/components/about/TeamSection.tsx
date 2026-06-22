@@ -148,6 +148,7 @@ export default function TeamSection() {
                   src={member.image}
                   alt={member.name}
                   fill
+                  sizes="(min-width: 768px) 33vw, 90vw"
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   onError={(e) => {
                     // Fallback placeholder if image missing
