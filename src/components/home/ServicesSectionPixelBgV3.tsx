@@ -11,7 +11,7 @@ const services = [
     description:
       "Marketing sites and product surfaces built to look exceptional and perform like infrastructure.",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    image: "/web-development-services.jpg",
+    image: "/web-development-services.webp",
   },
   {
     number: "02",
@@ -19,7 +19,7 @@ const services = [
     description:
       "Native-feeling mobile experiences that work seamlessly across every device and platform.",
     tags: ["React Native", "iOS", "Android", "Expo"],
-    image: "/mobile-app-development-services.jpg",
+    image: "/mobile-app-development-services.webp",
   },
   {
     number: "03",
@@ -27,7 +27,7 @@ const services = [
     description:
       "Interfaces designed with intention: every interaction considered, every pixel deliberate.",
     tags: ["Figma", "Prototyping", "Design Systems", "User Research"],
-    image: "/ui-ux-design-services.jpg",
+    image: "/ui-ux-design-services.webp",
   },
   {
     number: "04",
@@ -35,7 +35,7 @@ const services = [
     description:
       "Embedding intelligence into products without the gimmicks. Real utility, real results.",
     tags: ["LLM Integration", "Automation", "Claude", "OpenAI"],
-    image: "/ai-integration-services.jpg",
+    image: "/ai-integration-services.webp",
   },
 ];
 
