@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import ServiceDialog from "./ServiceDialog";
 
 const ACCENT = "#FB4B54";
 
@@ -55,6 +56,7 @@ export default function ServiceSplitSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
   const [animated, setAnimated] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -259,8 +261,9 @@ export default function ServiceSplitSection() {
             <p className="font-geist text-xs text-white/40">See pricing →</p>
           </div>
 
-          <a
-            href="/contact"
+          <button
+            type="button"
+            onClick={() => setDialogOpen(true)}
             className="flex items-center justify-center gap-2 font-geist font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 hover:brightness-110"
             style={{ backgroundColor: ACCENT, color: "white" }}
           >
@@ -268,9 +271,11 @@ export default function ServiceSplitSection() {
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
               <path d="M2 8L8 2M8 2H3M8 2V7" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
+
+      <ServiceDialog service={dialogOpen ? active : null} onClose={() => setDialogOpen(false)} />
     </section>
   );
 }
