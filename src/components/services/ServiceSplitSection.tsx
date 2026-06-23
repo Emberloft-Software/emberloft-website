@@ -12,7 +12,7 @@ const services = [
     description:
       "From fast static sites to complex fullstack platforms. We build with Next.js, React, Node.js, and Firebase, whatever the project demands. Every line written in-house.",
     tags: ["Next.js", "React", "Node.js", "Firebase", "WordPress"],
-    stat: "48+ sites shipped",
+    stat: "Mobile responsive ready",
   },
   {
     number: "02",
