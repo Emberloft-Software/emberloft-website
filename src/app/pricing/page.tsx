@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PricingSection from "@/components/pricing/PricingSection";
+
+export const metadata: Metadata = {
+  title: "Pricing - Emberloft Studio",
+  description:
+    "Simple, transparent pricing with no hidden fees, plans that fit startups and established businesses alike.",
+};
 
 export default function PricingPage() {
   return (

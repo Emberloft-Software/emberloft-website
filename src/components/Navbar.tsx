@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import ArrowButton from "./ArrowButton";
 
 const navLinks = [
-  { label: "Home", href: "/home" },
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
@@ -97,7 +97,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <Link
-          href="/home"
+          href="/"
           className="flex h-12 items-center gap-3 pl-2 text-white font-semibold text-2xl tracking-tight"
         >
           <Image

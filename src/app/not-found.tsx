@@ -20,7 +20,7 @@ export default function NotFound() {
           The page you're looking for doesn't exist or has moved. Let's get you back on track.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <ArrowButton href="/home" variant="solid">
+          <ArrowButton href="/" variant="solid">
             Back to Home
           </ArrowButton>
           <ArrowButton href="/contact" variant="outline">
