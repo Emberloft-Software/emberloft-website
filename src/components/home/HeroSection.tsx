@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { JSAnimation } from "animejs";
+import Image from "next/image";
 import ArrowButton from "../ArrowButton";
 
 const services = [
@@ -64,18 +65,15 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative w-screen h-screen overflow-hidden bg-[#0A0A0A]">
-        {/* Background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster="/emberloft-logo-particle-animation-hero-poster.jpg"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-        >
-          <source src="/emberloft-logo-particle-animation-hero.mp4" type="video/mp4" />
-        </video>
+        {/* Background image */}
+        <Image
+          src="/emberloft-phoenix-logo-hero.webp"
+          alt="Emberloft phoenix logo formed from glowing red particles"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-80"
+        />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-linear-to-r from-[#0A0A0A]/70 via-[#0A0A0A]/30 to-transparent" />
@@ -120,7 +118,7 @@ export default function HeroSection() {
         </div>
 
         {/* Drumroll service list - right side (hidden on mobile), aligned with navbar's right edge */}
-        <div className="hidden md:block absolute right-[5vw] top-1/2 -translate-y-1/2 z-20 overflow-hidden h-36">
+        {/* <div className="hidden md:block absolute right-[5vw] top-1/2 -translate-y-1/2 z-20 overflow-hidden h-36">
           <div ref={drumRef} className="flex flex-col">
             {services.map((s, i) => (
               <div
@@ -132,7 +130,7 @@ export default function HeroSection() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Marquee strip - overlaps the hero's bottom edge, dissolving the watermark into it */}
