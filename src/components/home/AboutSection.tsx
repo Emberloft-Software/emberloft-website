@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,6 +11,22 @@ export default function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const videoCardRef = useRef<HTMLDivElement>(null);
+  const [videoInView, setVideoInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVideoInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    if (videoCardRef.current) observer.observe(videoCardRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -103,6 +119,7 @@ export default function AboutSection() {
               src="/emberloft-craft-over-volume-design-detail.webp"
               alt="Macro detail shot representing Emberloft's craft-focused design approach"
               fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover object-top"
             />
           </div>
@@ -133,15 +150,30 @@ export default function AboutSection() {
           </div>
 
           {/* Video card - Emberloft logo animation */}
-          <div className="about-card opacity-0 rounded-2xl overflow-hidden relative min-h-[45vh]">
-            <video
-              src="/emberloft-logo-animation.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+          <div
+            ref={videoCardRef}
+            className="about-card opacity-0 rounded-2xl overflow-hidden relative min-h-[45vh]"
+          >
+            {videoInView ? (
+              <video
+                src="/emberloft-logo-animation.mp4"
+                poster="/emberloft-logo-animation-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src="/emberloft-logo-animation-poster.jpg"
+                alt="Emberloft logo animation preview"
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover"
+              />
+            )}
           </div>
         </div>
 
@@ -153,6 +185,7 @@ export default function AboutSection() {
               src="/emberloft-accountable-to-the-work-ar-goggles.webp"
               alt="Person wearing AR goggles, representing Emberloft's accountable, hands-on approach to the work"
               fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover object-center"
             />
             {/* Dark gradient overlay */}

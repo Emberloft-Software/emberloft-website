@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/contact/ContactFormSection";
 import ContactInfoSection from "@/components/contact/ContactInfoSection";
+
+export const metadata: Metadata = {
+  title: "Contact - Emberloft Studio",
+  description:
+    "We take on a small number of projects at a time. If you've got something worth building, tell us about it.",
+};
 
 export default function ContactPage() {
   return (

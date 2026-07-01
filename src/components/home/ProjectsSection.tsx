@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import ArrowButton from "../ArrowButton";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ArrowButton from "../ArrowButton";
 import { projects } from "./projectsData";
 
 gsap.registerPlugin(ScrollTrigger);

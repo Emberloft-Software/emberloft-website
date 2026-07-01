@@ -18,7 +18,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://emberloft.io"),
+  metadataBase: new URL("https://www.emberloft.studio"),
   title: "Emberloft",
   description: "Web Development, Mobile, UI/UX, AI Integration",
   verification: {

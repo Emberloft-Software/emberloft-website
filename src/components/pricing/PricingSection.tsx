@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import PricingDialog from "./PricingDialog";
 
 type Category = "web-static" | "web-wp" | "web-fullstack" | "mobile" | "social";
 
@@ -331,6 +332,7 @@ export default function PricingSection() {
   const headingRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<Category>("web-static");
   const [animated, setAnimated] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -586,8 +588,9 @@ export default function PricingSection() {
                     </span>
                   </div>
 
-                  <a
-                    href="/contact"
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPlan(plan)}
                     className="flex items-center gap-2 font-geist font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:brightness-110 shrink-0"
                     style={{
                       backgroundColor: plan.highlight ? "#EEBA0B" : "#0D0D0D",
@@ -603,7 +606,7 @@ export default function PricingSection() {
                         strokeLinecap="round"
                       />
                     </svg>
-                  </a>
+                  </button>
                 </div>
 
               </div>
@@ -622,6 +625,8 @@ export default function PricingSection() {
         </p>
 
       </div>
+
+      <PricingDialog plan={selectedPlan} onClose={() => setSelectedPlan(null)} />
     </section>
   );
 }

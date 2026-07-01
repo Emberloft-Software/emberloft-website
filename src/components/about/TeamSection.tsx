@@ -12,7 +12,7 @@ const team = [
     tags: ["Full-Stack Dev", "Mobile", "AI Integration"],
     image: "/team-chanka-herath.webp",
     accent: "#FB4B54",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/chanka-herath/",
   },
   {
     name: "Sanuth Mandepa",
@@ -22,7 +22,7 @@ const team = [
     tags: ["UI / UX", "WordPress", "Brand"],
     image: "/team-sanuth-mandepa.webp",
     accent: "#290052",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/sanuthmandepa/",
   },
   {
     name: "Ranan Hewawasam",
@@ -33,6 +33,16 @@ const team = [
     image: "/team-ranan-hewawasam.webp",
     accent: "#FB4B54",
     linkedin: "https://www.linkedin.com/in/ranan-hewawasam-3b3402243/",
+  },
+  {
+    name: "Dinaga Nethusahan",
+    role: "Videography & Visual Content Lead",
+    description:
+      "Tells the story in motion. Handles videography, social media content, and the graphic work that gives every release its visual edge.",
+    tags: ["Videography", "Social Media", "Graphic Design"],
+    image: "/dinaga-nethusahan-team.webp",
+    accent: "#290052",
+    linkedin: "https://www.linkedin.com/in/dinaga-nethusahan-8aa992396/",
   },
 ];
 
@@ -115,13 +125,13 @@ export default function TeamSection() {
             className="font-geist text-black/40 max-w-sm leading-relaxed lg:text-right"
             style={{ fontSize: "clamp(0.85rem, 1.1vw, 1rem)" }}
           >
-            Three people who care deeply about what gets shipped. No filler. No
-            bench.
+            A small crew who care deeply about what gets shipped. No filler.
+            No bench.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {team.map((member, i) => (
             <div
               key={i}
@@ -137,17 +147,14 @@ export default function TeamSection() {
                 style={{
                   height: "clamp(480px, 58vh, 620px)",
                   backgroundColor:
-                    i === 0
-                      ? "#FFE8E9" // soft red tint for Chanka
-                      : i === 1
-                        ? "#EDE8F5" // soft purple tint for Sanuth
-                        : "#FFE8E9", // soft red tint for Ranan
+                    member.accent === "#290052" ? "#EDE8F5" : "#FFE8E9",
                 }}
               >
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
+                  sizes="(min-width: 768px) 33vw, 90vw"
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   onError={(e) => {
                     // Fallback placeholder if image missing
@@ -164,7 +171,9 @@ export default function TeamSection() {
                     className="font-geist font-black text-7xl select-none"
                     style={{
                       color:
-                        i === 1 ? "rgba(41,0,82,0.12)" : "rgba(251,75,84,0.12)",
+                        member.accent === "#290052"
+                          ? "rgba(41,0,82,0.12)"
+                          : "rgba(251,75,84,0.12)",
                     }}
                   >
                     {member.name
@@ -236,13 +245,15 @@ export default function TeamSection() {
                       className="font-geist text-xs font-medium px-3 py-1 rounded-full border"
                       style={{
                         borderColor:
-                          i === 1
+                          member.accent === "#290052"
                             ? "rgba(41,0,82,0.15)"
                             : "rgba(251,75,84,0.15)",
                         color:
-                          i === 1 ? "rgba(41,0,82,0.6)" : "rgba(251,75,84,0.7)",
+                          member.accent === "#290052"
+                            ? "rgba(41,0,82,0.6)"
+                            : "rgba(251,75,84,0.7)",
                         backgroundColor:
-                          i === 1
+                          member.accent === "#290052"
                             ? "rgba(41,0,82,0.04)"
                             : "rgba(251,75,84,0.04)",
                       }}

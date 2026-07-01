@@ -188,8 +188,8 @@ export default function Footer() {
             <Image
               src="/logo.webp"
               alt="Emberloft logo"
-              width={500}
-              height={397}
+              width={200}
+              height={159}
               className="h-9 w-auto"
             />
             <span className="font-geist font-extrabold text-xl tracking-tight">

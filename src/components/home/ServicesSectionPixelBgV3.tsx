@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import ArrowButton from "../ArrowButton";
 
 const services = [
@@ -10,7 +11,7 @@ const services = [
     description:
       "Marketing sites and product surfaces built to look exceptional and perform like infrastructure.",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    image: "/services-1.mp4",
+    image: "/web-development-services.webp",
   },
   {
     number: "02",
@@ -18,7 +19,7 @@ const services = [
     description:
       "Native-feeling mobile experiences that work seamlessly across every device and platform.",
     tags: ["React Native", "iOS", "Android", "Expo"],
-    image: "/services-1.mp4",
+    image: "/mobile-app-development-services.webp",
   },
   {
     number: "03",
@@ -26,7 +27,7 @@ const services = [
     description:
       "Interfaces designed with intention: every interaction considered, every pixel deliberate.",
     tags: ["Figma", "Prototyping", "Design Systems", "User Research"],
-    image: "/services-1.mp4",
+    image: "/ui-ux-design-services.webp",
   },
   {
     number: "04",
@@ -34,7 +35,7 @@ const services = [
     description:
       "Embedding intelligence into products without the gimmicks. Real utility, real results.",
     tags: ["LLM Integration", "Automation", "Claude", "OpenAI"],
-    image: "/services-1.mp4",
+    image: "/ai-integration-services.webp",
   },
 ];
 
@@ -247,22 +248,20 @@ export default function ServicesSectionPixelBgV3() {
           className="opacity-0 flex flex-col gap-[2vh] lg:sticky lg:top-[12vh]"
         >
 
-          {/* Video */}
+          {/* Image */}
             <div
             ref={imageRef}
             className="relative w-full overflow-hidden rounded-2xl"
-            style={{ height: "clamp(180px, 25vh, 320px)" }}
+            style={{ height: "clamp(280px, 35vh, 420px)" }}
             >
-            <video
+            <Image
                 key={active.image}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover object-center"
-            >
-                <source src={active.image} type="video/mp4" />
-            </video>
+                src={active.image}
+                alt={active.title}
+                fill
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="object-cover object-center"
+            />
             </div>
 
           {/* Text details */}

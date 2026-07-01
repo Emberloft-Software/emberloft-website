@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/components/home/blogData";
 
-const baseUrl = "https://emberloft.io";
+const baseUrl = "https://www.emberloft.studio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
-    "/home",
+    "",
     "/about",
     "/services",
     "/pricing",

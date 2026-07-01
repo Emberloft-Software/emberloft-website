@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://emberloft.io/sitemap.xml",
+    sitemap: "https://www.emberloft.studio/sitemap.xml",
   };
 }

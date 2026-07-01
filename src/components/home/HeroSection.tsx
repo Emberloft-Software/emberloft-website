@@ -71,6 +71,7 @@ export default function HeroSection() {
           alt="Glowing red phoenix made of light particles — Emberloft web design and development studio"
           fill
           priority
+          sizes="100vw"
           className="object-cover opacity-80"
         />
 
@@ -117,7 +118,7 @@ export default function HeroSection() {
         </div>
 
         {/* Drumroll service list - right side (hidden on mobile), aligned with navbar's right edge */}
-        <div className="hidden md:block absolute right-[5vw] top-1/2 -translate-y-1/2 z-20 overflow-hidden h-36">
+        {/* <div className="hidden md:block absolute right-[5vw] top-1/2 -translate-y-1/2 z-20 overflow-hidden h-36">
           <div ref={drumRef} className="flex flex-col">
             {services.map((s, i) => (
               <div
@@ -129,7 +130,7 @@ export default function HeroSection() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Marquee strip - overlaps the hero's bottom edge, dissolving the watermark into it */}

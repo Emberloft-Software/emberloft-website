@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ServiceSplitSection from "@/components/services/ServiceSplitSection";
 import ProcessSection from "@/components/services/ProcessSection";
 import CompareSection from "@/components/services/CompareSection";
 import PricingSection from "@/components/pricing/PricingSection";
+
+export const metadata: Metadata = {
+  title: "Services & Pricing - Emberloft Studio",
+  description:
+    "Fixed prices. Senior hands. No surprises, just work that performs.",
+};
 
 export default function ServicesPage() {
   return (
