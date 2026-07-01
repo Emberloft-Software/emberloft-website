@@ -20,9 +20,9 @@ export async function GET(request: NextRequest) {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#F5F5F5",
+          backgroundColor: "#0A0A0A",
           backgroundImage:
-            "linear-gradient(rgba(41,0,82,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(41,0,82,0.06) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
           fontFamily: "sans-serif",
           position: "relative",
@@ -82,7 +82,7 @@ export async function GET(request: NextRequest) {
               style={{
                 fontSize: 32,
                 fontWeight: 900,
-                color: "#290052",
+                color: "#F5F5F5",
                 letterSpacing: "-1.5px",
               }}
             >
@@ -95,7 +95,7 @@ export async function GET(request: NextRequest) {
             style={{
               fontSize,
               fontWeight: 800,
-              color: "#0A0A0A",
+              color: "#F5F5F5",
               lineHeight: 1.12,
               letterSpacing: "-2.5px",
               marginBottom: 18,
@@ -119,7 +119,7 @@ export async function GET(request: NextRequest) {
           <div
             style={{
               fontSize: 22,
-              color: "rgba(10,10,10,0.5)",
+              color: "rgba(245,245,245,0.5)",
               lineHeight: 1.6,
               maxWidth: 800,
               marginBottom: 36,
@@ -154,7 +154,7 @@ export async function GET(request: NextRequest) {
               alignItems: "center",
               gap: 10,
               paddingTop: 26,
-              borderTop: "1px solid rgba(10,10,10,0.1)",
+              borderTop: "1px solid rgba(245,245,245,0.08)",
             }}
           >
             <div
@@ -169,7 +169,7 @@ export async function GET(request: NextRequest) {
             <span
               style={{
                 fontSize: 15,
-                color: "rgba(10,10,10,0.38)",
+                color: "rgba(245,245,245,0.35)",
                 letterSpacing: "1.5px",
               }}
             >
