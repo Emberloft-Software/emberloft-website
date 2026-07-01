@@ -8,9 +8,9 @@ export async function GET(request: NextRequest) {
   const title = searchParams.get("title") ?? "Web, Mobile, UI/UX & AI";
   const description =
     searchParams.get("description") ??
-    "A focused studio of three building web, mobile, UI/UX, and AI-integrated products. Fewer hands, more care.";
+    "One studio. Four disciplines. Web, mobile, UI/UX and AI all under one roof. No outsourcing. No surprises.";
 
-  const fontSize = title.length > 35 ? 52 : 64;
+  const fontSize = title.length > 35 ? 50 : 64;
 
   return new ImageResponse(
     (
@@ -20,137 +20,131 @@ export async function GET(request: NextRequest) {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#0A0A0A",
-          padding: "0",
+          backgroundColor: "#F5F5F5",
+          backgroundImage:
+            "linear-gradient(rgba(41,0,82,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(41,0,82,0.06) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
           fontFamily: "sans-serif",
           position: "relative",
+          overflow: "hidden",
         }}
       >
-        {/* Purple glow — top-right corner */}
+        {/* Purple glow — top-right */}
         <div
           style={{
             position: "absolute",
-            top: -120,
-            right: -120,
-            width: 480,
-            height: 480,
+            top: -180,
+            right: -180,
+            width: 520,
+            height: 520,
             borderRadius: "50%",
-            background: "radial-gradient(circle, #290052 0%, transparent 70%)",
-            opacity: 0.7,
+            background: "radial-gradient(circle, rgba(41,0,82,0.22) 0%, transparent 70%)",
           }}
         />
 
-        {/* Red glow — bottom-left corner */}
+        {/* Red glow — bottom-left */}
         <div
           style={{
             position: "absolute",
-            bottom: -80,
-            left: -80,
-            width: 320,
-            height: 320,
+            bottom: -120,
+            left: -120,
+            width: 400,
+            height: 400,
             borderRadius: "50%",
-            background: "radial-gradient(circle, #FB4B54 0%, transparent 70%)",
-            opacity: 0.18,
+            background: "radial-gradient(circle, rgba(251,75,84,0.14) 0%, transparent 70%)",
           }}
         />
 
-        {/* Content layer */}
+        {/* Content */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             width: "100%",
             height: "100%",
-            padding: "60px 80px",
+            padding: "56px 80px",
             position: "relative",
           }}
         >
-          {/* Top: logo + gold accent bar */}
-          <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: "auto" }}>
-            {/* Logo wordmark */}
-            <div style={{ display: "flex", alignItems: "baseline" }}>
-              <span
-                style={{
-                  fontSize: 28,
-                  fontWeight: 900,
-                  color: "#EEBA0B",
-                  letterSpacing: "-1px",
-                }}
-              >
-                ember
-              </span>
-              <span
-                style={{
-                  fontSize: 28,
-                  fontWeight: 900,
-                  color: "#F5F5F5",
-                  letterSpacing: "-1px",
-                }}
-              >
-                loft
-              </span>
-            </div>
-
-            {/* Divider dot */}
-            <div
-              style={{
-                width: 5,
-                height: 5,
-                borderRadius: "50%",
-                backgroundColor: "#FB4B54",
-              }}
-            />
-
-            {/* Studio label */}
+          {/* Logo */}
+          <div style={{ display: "flex", alignItems: "baseline", marginBottom: "auto" }}>
             <span
               style={{
-                fontSize: 11,
+                fontSize: 32,
+                fontWeight: 900,
                 color: "#EEBA0B",
-                letterSpacing: "5px",
-                fontWeight: 600,
-                textTransform: "uppercase",
+                letterSpacing: "-1.5px",
               }}
             >
-              studio
+              ember
+            </span>
+            <span
+              style={{
+                fontSize: 32,
+                fontWeight: 900,
+                color: "#290052",
+                letterSpacing: "-1.5px",
+              }}
+            >
+              loft
             </span>
           </div>
-
-          {/* Gold rule */}
-          <div
-            style={{
-              width: 48,
-              height: 3,
-              backgroundColor: "#EEBA0B",
-              marginBottom: 28,
-            }}
-          />
 
           {/* Page title */}
           <div
             style={{
               fontSize,
-              fontWeight: 700,
-              color: "#F5F5F5",
-              lineHeight: 1.15,
-              letterSpacing: "-2px",
-              marginBottom: 22,
-              maxWidth: 960,
+              fontWeight: 800,
+              color: "#0A0A0A",
+              lineHeight: 1.12,
+              letterSpacing: "-2.5px",
+              marginBottom: 18,
+              maxWidth: 980,
             }}
           >
             {title}
           </div>
 
+          {/* Gold rule */}
+          <div
+            style={{
+              width: 44,
+              height: 3,
+              backgroundColor: "#EEBA0B",
+              marginBottom: 22,
+            }}
+          />
+
           {/* Description */}
           <div
             style={{
-              fontSize: 21,
-              color: "rgba(245,245,245,0.5)",
-              lineHeight: 1.65,
-              maxWidth: 820,
-              marginBottom: "auto",
+              fontSize: 22,
+              color: "rgba(10,10,10,0.5)",
+              lineHeight: 1.6,
+              maxWidth: 800,
+              marginBottom: 36,
             }}
           >
             {description}
+          </div>
+
+          {/* CTA pill */}
+          <div style={{ display: "flex", marginBottom: "auto" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: "#FB4B54",
+                color: "#F5F5F5",
+                fontSize: 17,
+                fontWeight: 700,
+                padding: "13px 30px",
+                borderRadius: 100,
+                letterSpacing: "0.2px",
+              }}
+            >
+              Start a project with us →
+            </div>
           </div>
 
           {/* Bottom URL bar */}
@@ -159,8 +153,8 @@ export async function GET(request: NextRequest) {
               display: "flex",
               alignItems: "center",
               gap: 10,
-              paddingTop: 32,
-              borderTop: "1px solid rgba(245,245,245,0.08)",
+              paddingTop: 26,
+              borderTop: "1px solid rgba(10,10,10,0.1)",
             }}
           >
             <div
@@ -169,13 +163,13 @@ export async function GET(request: NextRequest) {
                 height: 7,
                 borderRadius: "50%",
                 backgroundColor: "#EEBA0B",
-                boxShadow: "0 0 6px #EEBA0B",
+                boxShadow: "0 0 5px #EEBA0B",
               }}
             />
             <span
               style={{
-                fontSize: 16,
-                color: "rgba(245,245,245,0.35)",
+                fontSize: 15,
+                color: "rgba(10,10,10,0.38)",
                 letterSpacing: "1.5px",
               }}
             >
@@ -185,9 +179,6 @@ export async function GET(request: NextRequest) {
         </div>
       </div>
     ),
-    {
-      width: 1200,
-      height: 630,
-    },
+    { width: 1200, height: 630 },
   );
 }
