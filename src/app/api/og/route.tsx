@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
             width: 520,
             height: 520,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(41,0,82,0.22) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(41,0,82,0.38) 0%, transparent 70%)",
           }}
         />
 
@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
             width: 400,
             height: 400,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(251,75,84,0.14) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(251,75,84,0.28) 0%, transparent 70%)",
           }}
         />
 
@@ -134,8 +134,8 @@ export async function GET(request: NextRequest) {
               style={{
                 display: "flex",
                 alignItems: "center",
-                backgroundColor: "#FB4B54",
-                color: "#F5F5F5",
+                backgroundColor: "#EEBA0B",
+                color: "#0A0A0A",
                 fontSize: 17,
                 fontWeight: 700,
                 padding: "13px 30px",
