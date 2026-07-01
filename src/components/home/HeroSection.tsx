@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { JSAnimation } from "animejs";
+import Image from "next/image";
 import ArrowButton from "../ArrowButton";
 
 const services = [
@@ -64,16 +65,14 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative w-screen h-screen overflow-hidden bg-[#0A0A0A]">
-        {/* Background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-        >
-          <source src="/emberloft-logo-particle-animation-hero.mp4" type="video/mp4" />
-        </video>
+        {/* Background image */}
+        <Image
+          src="/emberloft-phoenix-particle-hero.webp"
+          alt="Glowing red phoenix made of light particles — Emberloft web design and development studio"
+          fill
+          priority
+          className="object-cover opacity-80"
+        />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-linear-to-r from-[#0A0A0A]/70 via-[#0A0A0A]/30 to-transparent" />
