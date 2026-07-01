@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy - Emberloft Studio",
   description:
     "How Emberloft Studio collects, uses, and protects your personal information.",
+  alternates: {
+    canonical: "https://www.emberloft.studio/privacy",
+  },
 };
 
 const sections: { heading: string; body: string[] }[] = [

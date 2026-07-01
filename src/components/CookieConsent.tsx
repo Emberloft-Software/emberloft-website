@@ -1,35 +1,48 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Script from "next/script";
 
 const CONSENT_KEY = "emberloft-cookie-consent";
 
 export default function CookieConsent() {
-  const [consent, setConsent] = useState<"accepted" | "rejected" | null>(null);
   const [visible, setVisible] = useState(false);
+  const [gaLoaded, setGaLoaded] = useState(false);
+
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const pathname = usePathname();
+
+  // Track client-side route changes after GA is loaded
+  useEffect(() => {
+    if (!gaLoaded || !gaId) return;
+    const w = window as Window & { gtag?: (...args: unknown[]) => void };
+    if (typeof w.gtag === "function") {
+      w.gtag("config", gaId, { page_path: pathname });
+    }
+  }, [pathname, gaLoaded, gaId]);
 
   useEffect(() => {
     const stored = localStorage.getItem(CONSENT_KEY);
-    if (stored === "accepted" || stored === "rejected") {
-      setConsent(stored);
-    } else {
+    if (stored === "accepted") {
+      // Returning user who already accepted — load GA immediately
+      if (gaId) setGaLoaded(true);
+    } else if (stored !== "rejected") {
+      // First visit — show the banner
       setVisible(true);
     }
-  }, []);
+  }, [gaId]);
 
   const choose = (value: "accepted" | "rejected") => {
     localStorage.setItem(CONSENT_KEY, value);
-    setConsent(value);
     setVisible(false);
+    if (value === "accepted" && gaId) setGaLoaded(true);
   };
-
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
     <>
-      {consent === "accepted" && gaId && (
+      {gaLoaded && gaId && (
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
