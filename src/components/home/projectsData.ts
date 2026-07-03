@@ -12,14 +12,14 @@ export type Project = {
 export const projects: Project[] = [
   {
     number: "01",
-    title: "Gandhara Art & Design Studio",
-    category: "UI/UX · Figma Design",
+    title: "Art & Design Studio Concept",
+    category: "UI/UX · Personal Project",
     year: "2023",
     tags: ["Figma", "UI/UX Design", "Web Design"],
     description:
-      "A complete UI/UX redesign for Gandhara, an exclusive art and design studio in Colombo. Curated collections, interior solutions, and a custom e-commerce experience, designed end to end in Figma.",
+      "A personal UI/UX concept for an exclusive art and design studio in Colombo, exploring curated collections, interior solutions, and a custom e-commerce experience. Designed end to end in Figma.",
     color: "#FB4B54",
-    image: "/gandhara-art-design-studio-ui-ux-case-study.webp",
+    image: "/art-design-studio-concept-ui-ux-case-study.webp",
   },
   {
     number: "02",
