@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Terms of Service - Emberloft Studio",
   description:
     "The terms that govern working with Emberloft Studio and using this website.",
+  alternates: {
+    canonical: "https://www.emberloft.studio/terms",
+  },
 };
 
 const sections: { heading: string; body: string[] }[] = [

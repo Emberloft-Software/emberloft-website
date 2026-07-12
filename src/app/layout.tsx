@@ -21,6 +21,22 @@ export const metadata = {
   metadataBase: new URL("https://www.emberloft.studio"),
   title: "Emberloft",
   description: "Web Development, Mobile, UI/UX, AI Integration",
+  openGraph: {
+    siteName: "Emberloft Studio",
+    type: "website" as const,
+    locale: "en_US",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Emberloft Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
   },

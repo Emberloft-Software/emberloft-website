@@ -22,10 +22,15 @@ export async function generateMetadata({
   return {
     title: `${post.title} - Emberloft Studio`,
     description: post.seoDescription,
+    alternates: {
+      canonical: `https://www.emberloft.studio/blog/${post.slug}`,
+    },
     authors: [{ name: post.author }],
     openGraph: {
       title: post.title,
       description: post.seoDescription,
+      url: `https://www.emberloft.studio/blog/${post.slug}`,
+      siteName: "Emberloft Studio",
       type: "article",
       images: [{ url: post.image }],
       publishedTime: post.date,
@@ -34,7 +39,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.seoDescription,
-      images: [post.image],
+      images: [`/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.seoDescription)}`],
     },
   };
 }

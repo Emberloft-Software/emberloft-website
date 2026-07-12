@@ -8,11 +8,34 @@ export const metadata: Metadata = {
   title: "Blog - Emberloft Studio",
   description:
     "Notes on the work: Emberloft's take on AI-assisted development, design systems, and how we run a focused studio.",
+  alternates: {
+    canonical: "https://www.emberloft.studio/blog",
+  },
   openGraph: {
     title: "Blog - Emberloft Studio",
     description:
       "Notes on the work: Emberloft's take on AI-assisted development, design systems, and how we run a focused studio.",
+    url: "https://www.emberloft.studio/blog",
+    siteName: "Emberloft Studio",
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/api/og?title=The+Blog&description=Notes+on+AI-assisted+development%2C+design+systems%2C+and+how+we+run+a+focused+studio.",
+        width: 1200,
+        height: 630,
+        alt: "Emberloft Studio Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - Emberloft Studio",
+    description:
+      "Notes on the work: Emberloft's take on AI-assisted development, design systems, and how we run a focused studio.",
+    images: [
+      "/api/og?title=The+Blog&description=Notes+on+AI-assisted+development%2C+design+systems%2C+and+how+we+run+a+focused+studio.",
+    ],
   },
 };
 

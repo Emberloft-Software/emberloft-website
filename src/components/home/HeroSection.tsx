@@ -67,8 +67,8 @@ export default function HeroSection() {
       <section className="relative w-screen h-screen overflow-hidden bg-[#0A0A0A]">
         {/* Background image */}
         <Image
-          src="/emberloft-phoenix-logo-hero.webp"
-          alt="Emberloft phoenix logo formed from glowing red particles"
+          src="/emberloft-phoenix-particle-hero.webp"
+          alt="Glowing red phoenix made of light particles — Emberloft web design and development studio"
           fill
           priority
           sizes="100vw"
