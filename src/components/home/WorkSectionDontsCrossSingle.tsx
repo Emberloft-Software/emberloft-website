@@ -48,6 +48,7 @@ export default function WorkSectionDontsCrossSingle() {
     const available = textEl.clientWidth;
     const actual = textEl.scrollWidth;
     const scale = actual > available ? available / actual : 1;
+    textEl.style.transformOrigin = "left center";
     textEl.style.transform = `scale(${scale})`;
   };
 
@@ -69,8 +70,8 @@ export default function WorkSectionDontsCrossSingle() {
       currentSplit?.revert();
       textRef.current.textContent = items[indexRef.current];
       setDisplayIndex(indexRef.current);
-      fitText();
       currentSplit = new SplitType(textRef.current, { types: "chars" });
+      fitText();
       const split = currentSplit;
 
       await new Promise<void>((resolve) => {
@@ -138,10 +139,10 @@ export default function WorkSectionDontsCrossSingle() {
         We don&apos;t
       </span>
 
-      <span className="relative inline-block mt-[2vh] max-w-[90vw]">
+      <span className="relative inline-block mt-[2vh] max-w-[90vw] min-w-0">
         <span
           ref={textRef}
-          className="font-geist font-medium text-black block overflow-hidden whitespace-nowrap"
+          className="font-geist font-medium text-black block whitespace-nowrap"
           style={{ fontSize: "clamp(2.4rem, 6.5vw, 5.6rem)", lineHeight: 1.2, letterSpacing: "-0.03em" }}
         >
           {items[0]}
