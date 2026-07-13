@@ -18,8 +18,8 @@ const team = [
     name: "Sanuth Mandepa",
     role: "Co-Founder & Creative Director",
     description:
-      "Owns the visual language. UI/UX design, brand direction, WordPress builds, and making sure everything looks as good as it performs.",
-    tags: ["UI / UX", "WordPress", "Brand"],
+      "Sets the tone for how a project comes together, paying attention to how people actually notice and respond rather than just what looks good. That's the thread running through the creative direction.",
+    tags: ["Creative Direction", "Brand", "UI / UX"],
     image: "/team-sanuth-mandepa.webp",
     accent: "#290052",
     linkedin: "https://www.linkedin.com/in/sanuthmandepa/",
@@ -195,18 +195,26 @@ export default function TeamSection() {
                 className="flex flex-col flex-1 p-6"
                 style={{ backgroundColor: "white" }}
               >
-                {/* Name + LinkedIn */}
-                <div className="flex items-start justify-between gap-2 mb-1">
-                  <h3 className="font-geist font-black text-black text-lg leading-tight">
-                    {member.name}
-                  </h3>
+                {/* Name + Role + LinkedIn */}
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <div>
+                    <h3 className="font-geist font-black text-black text-lg leading-tight mb-1">
+                      {member.name}
+                    </h3>
+                    <p
+                      className="font-geist font-semibold text-sm"
+                      style={{ color: member.accent }}
+                    >
+                      {member.role}
+                    </p>
+                  </div>
 
                   {member.linkedin && member.linkedin !== "#" && (
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center border border-black/10 hover:border-[#FB4B54] hover:bg-[#FB4B54] transition-all duration-200 group/link mt-0.5"
+                      className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center border border-black/10 hover:border-[#FB4B54] hover:bg-[#FB4B54] transition-all duration-200 group/link"
                       aria-label={`${member.name} LinkedIn`}
                     >
                       <svg
@@ -223,14 +231,6 @@ export default function TeamSection() {
                     </a>
                   )}
                 </div>
-
-                {/* Role */}
-                <p
-                  className="font-geist font-semibold mb-3 text-sm"
-                  style={{ color: member.accent }}
-                >
-                  {member.role}
-                </p>
 
                 {/* Description */}
                 <p className="font-geist text-black/50 text-sm leading-relaxed mb-5 flex-1">
