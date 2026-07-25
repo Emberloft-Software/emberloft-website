@@ -12,6 +12,8 @@ const services = [
       "Marketing sites and product surfaces built to look exceptional and perform like infrastructure.",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     image: "/web-development-services.webp",
+    alt: "Web development services: a responsive Next.js site on a laptop screen",
+    fit: "cover" as const,
   },
   {
     number: "02",
@@ -19,7 +21,9 @@ const services = [
     description:
       "Native-feeling mobile experiences that work seamlessly across every device and platform.",
     tags: ["React Native", "iOS", "Android", "Expo"],
-    image: "/mobile-app-development-services.webp",
+    image: "/pearmo-mobile-app-ui-design-mockup.webp",
+    alt: "Pearmo mobile app UI design mockup on three iPhone screens, showing the profile, connection and personality views",
+    fit: "contain" as const,
   },
   {
     number: "03",
@@ -28,6 +32,8 @@ const services = [
       "Interfaces designed with intention: every interaction considered, every pixel deliberate.",
     tags: ["Figma", "Prototyping", "Design Systems", "User Research"],
     image: "/ui-ux-design-services.webp",
+    alt: "UI and UX design services: wireframes and interface layouts in progress",
+    fit: "cover" as const,
   },
   {
     number: "04",
@@ -36,6 +42,8 @@ const services = [
       "Embedding intelligence into products without the gimmicks. Real utility, real results.",
     tags: ["LLM Integration", "Automation", "Claude", "OpenAI"],
     image: "/ai-integration-services.webp",
+    alt: "AI integration services: an LLM-powered feature running inside a product interface",
+    fit: "cover" as const,
   },
 ];
 
@@ -251,16 +259,20 @@ export default function ServicesSectionPixelBgV3() {
           {/* Image */}
             <div
             ref={imageRef}
-            className="relative w-full overflow-hidden rounded-2xl"
+            className={`relative w-full overflow-hidden rounded-2xl ${
+              active.fit === "contain" ? "bg-white/3 border border-white/10" : ""
+            }`}
             style={{ height: "clamp(280px, 35vh, 420px)" }}
             >
             <Image
                 key={active.image}
                 src={active.image}
-                alt={active.title}
+                alt={active.alt}
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-cover object-center"
+                className={`object-center ${
+                  active.fit === "contain" ? "object-contain p-[3%]" : "object-cover"
+                }`}
             />
             </div>
 
