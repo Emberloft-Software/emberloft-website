@@ -259,10 +259,8 @@ export default function ServicesSectionPixelBgV3() {
           {/* Image */}
             <div
             ref={imageRef}
-            className={`relative w-full overflow-hidden rounded-2xl ${
-              active.fit === "contain" ? "bg-white/3 border border-white/10" : ""
-            }`}
-            style={{ height: "clamp(280px, 35vh, 420px)" }}
+            className="relative w-full overflow-hidden rounded-2xl"
+            style={{ height: "clamp(360px, 48vh, 560px)" }}
             >
             <Image
                 key={active.image}
@@ -271,7 +269,7 @@ export default function ServicesSectionPixelBgV3() {
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 className={`object-center ${
-                  active.fit === "contain" ? "object-contain p-[3%]" : "object-cover"
+                  active.fit === "contain" ? "object-contain" : "object-cover"
                 }`}
             />
             </div>
